@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="background"></div>
+    <div class="title" style="margin-top:30px;">
+        <p class="h3">点击购买金币</p>
+    </div>
+    <block wx:for="{{index}}" wx:for-item="item" wx:key="">
+        <div class="box">
+            <div class="cell animated fadeIn" bindtap="buy" data-index="{{item*2}}">                
+                <p>{{coins[item*2]['total']}}个金币</p>
+                <image src="/resource/image/icon/coin/coin{{item*2}}.png"></image>
+                <p>{{coins[item*2]['value'] / 100}}元</p>
+            </div>
+            <div class="cell animated fadeIn" bindtap="buy" data-index="{{item*2+1}}">                
+                <p>{{coins[item*2+1]['total']}}个金币</p>
+                <image src="/resource/image/icon/coin/coin{{item*2+1}}.png"></image>
+                <p>{{coins[item*2+1]['value'] / 100}}元</p>
+            </div>
+        </div>
+    </block>
+    <div class="addfooter"></div>
+</div>

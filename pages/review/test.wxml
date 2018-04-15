@@ -1,0 +1,39 @@
+<div class="container-fluid"> 
+    <div class="background-layer layer"></div>    
+    <div class="title">
+        <p class="h3">{{words[index]['word']}}</p>
+        <div wx:if="{{words[index]['phonetic']}}" class="flex-box sound" bindtap="playVoice">
+            <p>[{{words[index]['phonetic']}}]</p>
+            <image src="{{SEARCH_SOUND_IMG}}" class="phonetic"></image>
+        </div>
+    </div>    
+
+    <progress percent="{{progress}}" style="width:100%;margin-top:120px;" activeColor="#8CFFCE" backgroundColor="#67BB97"></progress>
+
+    <div class="row" style="margin-top:20px;">
+        <div class="col-24">
+            <block wx:for="{{words[index]['explain']}}" wx:for-item="item" wx:for-index="i" wx:key="">                
+                <div class="cell" bindtap="selected" data-index="{{i}}">
+                    <p class="text-title">{{item}}</p>
+                </div>
+            </block>
+        </div>
+    </div>
+    <div class="row" style="margin-top:10px;">
+        <div class="col-24">
+            <p class="text-center" style="font-size:smaller; color:#7a889d;">请选择一个正确的中文翻译</p>
+        </div>
+    </div>    
+    <div class="footer">
+        <p>
+            <span class="iconfont icon-correct correct-dot"> {{correct}}</span>
+        </p>
+        <p>
+            <span class="iconfont icon-error error-dot"> {{error}}</span>
+        </p>
+        <p>
+            <span class="iconfont icon-test timer"> {{index + 1}} / {{length}}</span>
+        </p>
+        <p class="endtest" bindtap="endtest">终止复习</p>
+    </div>
+</div>

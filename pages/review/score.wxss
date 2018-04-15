@@ -1,0 +1,117 @@
+page {
+    color: white;
+}
+
+.layer {
+    background-image: linear-gradient(to bottom, #0f2037 0%, #1d3351 100%);
+}
+
+.completed-header {
+    width: 244px;
+    height: 60.53435px;
+}
+
+.completed-container {
+    border: 2px solid #41c5de;
+    margin-top: -32px;
+    text-align: center;
+    padding-top: 52px;
+}
+
+.completed-star {
+    width: 264px;
+    height: 130px;
+}
+
+.info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 60px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.cell {
+    color: #b2d5df;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-grow: 1;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.info-star {
+    width: 25px;
+    height: 24px;
+}
+
+.info-timer {
+    width: 25px;
+    height: 25px;
+}
+
+.info-swords {
+    width: 22px;
+    height: 21px;
+}
+
+.action {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -32px;
+}
+
+.action-button {
+    width: 67px;
+    height: 64px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.share {
+    background-image: url('https://jidear.com/word/Public/resource/image/icon/gow/review/share.png');
+    background-size: contain;
+}
+
+.refresh {
+    background-image: url('https://jidear.com/word/Public/resource/image/icon/gow/review/refresh.png');
+    background-size: contain;
+}
+
+.completed {
+    background-image: url('https://jidear.com/word/Public/resource/image/icon/gow/review/completed.png');
+    background-size: contain;
+}
+
+.rowcell {
+    background-image: url('https://jidear.com/word/Public/resource/image/icon/gow/review/row.png');
+    background-size: contain;
+}
+
+.word-cell {
+    background-color: #233b5e;
+    border-bottom: 1px solid #233751;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.cell-finish {
+    border-left: 3px solid #fe8968;
+}
+
+.en {
+    font-weight: bold;
+    color:white;
+}
+
+.cn {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    color: #bdc4ce;
+    font-size: small;
+}

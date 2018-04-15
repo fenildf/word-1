@@ -1,0 +1,43 @@
+<div class="container-fluid">
+    <div class="background-layer layer"></div>   
+    <image src="/resource/image/recite_cover.jpg" style="width: {{width}}px; height: {{height}}px;"></image>
+    <div class="flex-box" style="height: {{height}}px; margin-top:{{-marginTop}}px;">
+        <p id="lexicon-name" class="h4">{{lexicon_name}}</p>
+    </div>
+
+    <div class="box">
+        <p><strong>今日签到数量：{{word_list.length}}</strong></p>
+        <p class="btn-switch" bindtap="choice">切换词库</p>
+    </div>
+
+    <div class="row">
+        <div class="col-24">            
+            <block wx:for="{{word_list}}" wx:for-item="item" wx:for-index="i" wx:key="">
+                <div wx:if="{{i < daily_word}}" class="cell cell-today" bindtap="detail" data-index="{{i}}">
+                    <p class="text-primary"><strong>{{item['word']}}</strong></p>
+                    <p class="cn text-secondary">{{item['explain']}}</p>
+                </div>
+                <div wx:elif="{{i < daily_word * 2}}" class="cell cell-day1" bindtap="detail" data-index="{{i}}">                    
+                    <p class="text-primary"><strong>{{item['word']}}</strong></p>
+                    <p class="cn text-secondary">{{item['explain']}}</p>
+                </div>
+                <div wx:else class="cell cell-day2" bindtap="detail" data-index="{{i}}">
+                    <p class="text-primary"><strong>{{item['word']}}</strong></p>
+                    <p class="cn text-secondary">{{item['explain']}}</p>
+                </div>
+            </block>
+        </div>
+    </div>
+    <div class="addfooter"></div>
+    <div class="addfooter"></div>
+    <block wx:if="{{is_pass_today == 0}}">
+        <form report-submit="{{true}}" bindsubmit="begin">
+            <button class="fixed-bottom-button begin" formType="submit">
+                <p>开始签到</p>
+            </button>
+        </form>
+    </block>
+    <div class="fixed-bottom-button finish" wx:if="{{is_pass_today == 1}}">
+        <p>已完成签到</p>
+    </div>
+</div>

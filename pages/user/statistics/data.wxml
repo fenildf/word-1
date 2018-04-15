@@ -1,0 +1,73 @@
+<div class="container">
+    <div class="background-layer layer"></div>
+    <swiper indicator-dots="true" indicator-color="#06FFE9" indicator-active-color="#1396ff" style="height:{{swiper_height}}px;" bindchange="swiperChange">
+        <swiper-item>
+            <div class="row">
+                <div class="col-22 col-offset-1">
+                    <div class="box" style="margin-top:30px;">
+                        <image src="{{PERSION_DATA_COVER}}" style="width:{{width}}px; height:{{height}}px;"></image>
+                        <p wx:if="{{gender == 2}}" class="nickname girl">{{nickname}}</p>
+                        <p wx:else class="nickname man">{{nickname}}</p>
+                        <div class="board">
+                            <div bindtap="info" data-key="signin">
+                                <p class="iconfont icon-signin" style="color:#59d654;"></p>
+                                <p class="number">{{signin_success}}</p>
+                                <p class="explain text-secondary">累计天数</p>
+                            </div>
+                            <div bindtap="info" data-key="wordcount">
+                                <p class="iconfont icon-english" style="color:gold;"></p>
+                                <p class="number">{{word_count}}</p>
+                                <p class="explain text-secondary">已签单词</p>
+                            </div>
+                            <div bindtap="info" data-key="level">
+                                <p class="iconfont icon-crown" style="color:#ff6d7f;"></p>
+                                <p class="number">{{level}}</p>
+                                <p class="explain text-secondary">我的等级</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="share-group">
+                        <button open-type="share" class="circle share-friend">
+                            <p class="iconfont icon-share"></p>
+                        </button>
+                        <button open-type="contact" class="circle share-friendcircle">
+                            <p class="iconfont icon-leaderboard"></p>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </swiper-item>
+        <swiper-item>
+            <scroll-view scroll-y style="height: 90%;">
+                <div class="row" style="margin-top:10px;">
+                    <div class="col-24">
+                        <block wx:for="{{lexicons}}" wx:for-item="item" wx:key="" wx:for-index="index">
+                            <div class="item" bindtap="choice" data-id="{{item['id']}}" data-words="{{item['word_count']}}">
+                                <div class="number" style="background-color:{{colors[index % colors.length]}};">
+                                    <p class="index">{{item['name'][0]}}</p>
+                                </div>
+                                <div class="content">
+                                    <p class="name">{{item['name']}}</p>
+                                    <div class="progress">
+                                        <div class="progress-item">
+                                            <p class="name">{{lexicons_progress[item['id']]['signin']}}</p>
+                                            <p class="info text-secondary">签到天数</p>
+                                        </div>
+                                        <div class="progress-item">
+                                            <p class="name">{{lexicons_progress[item['id']]['words']}}</p>
+                                            <p class="info text-secondary">已签单词</p>
+                                        </div>
+                                        <div class="progress-item">
+                                            <p class="name">{{lexicons_progress[item['id']]['review']}}%</p>
+                                            <p class="info text-secondary">复习进度</p>
+                                        </div>
+                                    </div>
+                                </div>                                
+                            </div>
+                        </block>                        
+                    </div>
+                </div>
+            </scroll-view>
+        </swiper-item>
+    </swiper>
+</div>

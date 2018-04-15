@@ -1,0 +1,35 @@
+/* pages/review/words.wxss */
+
+.layer {
+    background-image: linear-gradient(to bottom, #0f2037 0%, #1d3351 100%);
+}
+
+.cell {
+    background-color: #233b5e;
+    border-bottom: 1px solid #233751;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.cell-border {
+    border-left: 3px solid #5da6c4;
+}
+
+.en {
+    font-weight: bold;
+    color: white;
+}
+
+.cn {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    color: #bdc4ce;
+    font-size: small;
+}
+
+.btn-confirm {
+    color: #fff;
+    background-color: #6665ff;
+    border-color: #6665ff;    
+}

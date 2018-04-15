@@ -1,0 +1,113 @@
+.layer {
+    padding: 0;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;    
+    background-image: url('https://svipcoach.com/word/Public/resource/image/icon/gow/infinity/main.png');
+}
+
+.layer image {
+    margin: 0;
+}
+
+.name {
+    text-align: center;
+    color: #01a89e;
+    font-size: 50px;
+}
+
+.btn-begin {
+    background-color: transparent;
+    color: #01a89e;
+    text-align: center;
+    font-size: 25px;
+    display: block;
+}
+
+.btn-rank {
+    color: #466085;
+    background-color: transparent;
+    text-align: center;
+    font-size: 25px;
+}
+
+.btn-home {
+    color: #f37746;
+    background-color: transparent;
+    text-align: center;
+    font-size: 25px;
+}
+
+.share {
+    position: fixed;
+    z-index: 2;
+    color: white;
+    right: 10px;
+    bottom: 10px;
+    background-color: transparent;
+    border: 0;
+    padding: 0;
+}
+
+.share p {
+    color: pink;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+@keyframes cloud1 {
+    from {
+        left: -100px;
+    }
+
+    to {
+        left: 500px;
+    }
+}
+
+@keyframes cloud2 {
+    from {
+        left: 500px;
+    }
+
+    to {
+        left: -100px;
+    }
+}
+
+.cloud1 {
+    animation: cloud1 30s infinite;
+    position: fixed;
+    top: 10%;
+}
+
+.cloud2 {
+    animation: cloud2 30s infinite;
+    position: fixed;
+    top: 30%;
+}
+
+.test
+{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 21;
+    background-color: yellow;
+    height: 20px;
+}
+
+.bbb
+{
+    padding: 0;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+}

@@ -1,0 +1,75 @@
+{
+    "pages": [        
+        "pages/home/start",
+        
+        "pages/recite/index",
+        "pages/recite/words",
+        "pages/recite/detail",
+        "pages/recite/test",
+        "pages/recite/score",
+        
+        "pages/review/index",
+        "pages/review/words",
+        "pages/review/detail",
+        "pages/review/test",
+        "pages/review/score",
+
+        "pages/infinity/index",
+        "pages/infinity/wait",
+        "pages/infinity/test",
+        "pages/infinity/score",
+        "pages/infinity/leaderboard",
+        "pages/infinity/explain",
+
+
+        "pages/lexicon/choice",
+        "pages/lexicon/daily",               
+                        
+        "pages/search/index",        
+        
+        "pages/user/index",        
+        "pages/user/signin/recite",
+        "pages/user/statistics/data",
+        "pages/user/coin/detail",
+        "pages/user/coin/buy"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#ffffff",
+        "navigationBarTitleText": " ",
+        "navigationBarTextStyle": "black",
+        "backgroundColor": "#ffffff"
+    },
+    "tabBar": {
+        "color": "#888",
+        "selectedColor": "#1296db",
+        "backgroundColor": "#fff",
+        "position": "bottom",
+        "list": [
+            {
+                "pagePath": "pages/recite/index",
+                "text": "学习",
+                "iconPath": "/resource/image/tab/sign2.png",
+                "selectedIconPath": "/resource/image/tab/sign.png"
+            },
+            {
+                "pagePath": "pages/infinity/index",
+                "text": "挑战",
+                "iconPath": "/resource/image/tab/pk2.png",
+                "selectedIconPath": "/resource/image/tab/pk.png"
+            },
+            {
+                "pagePath": "pages/search/index",
+                "text": "查词",
+                "iconPath": "/resource/image/tab/search2.png",
+                "selectedIconPath": "/resource/image/tab/search.png"
+            },
+            {
+                "pagePath": "pages/user/index",
+                "text": "个人",
+                "iconPath": "/resource/image/tab/person2.png",
+                "selectedIconPath": "/resource/image/tab/person.png"
+            }
+        ]
+    }
+}

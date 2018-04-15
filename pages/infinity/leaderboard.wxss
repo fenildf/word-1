@@ -1,0 +1,117 @@
+/* pages/infinity/leaderboard.wxss */
+
+.leaderboard {
+    background-color:rgba(0, 0, 0, 0.5);
+    border-radius:20px;    
+    margin-left:15px;
+    margin-right:15px;
+    padding-bottom: 10px;
+    overflow:hidden;
+    color: white;
+}
+
+.header {    
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    padding-top: 20px;
+}
+
+.countdown
+{
+    text-align: center;
+    font-size: small;
+    margin-bottom:10px;
+}
+
+.rank
+{
+    display: flex;
+    align-items: center;
+    margin-top: 5px;    
+    margin-left: 15px;
+    margin-right: 15px; 
+    padding-top: 5px;       
+    padding-bottom: 5px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.rank-first {    
+    background-color:rgba(255,215,0,0.9);
+}
+
+.rank-second {    
+    background-color:rgba(192,192,192,0.7);
+}
+
+.rank-third {    
+    background-color:rgba(203,143,145,0.7);
+}
+
+.rank-self {
+    background-color:rgba(61,193,255, 0.7);
+}
+
+.avatar
+{
+    border-radius: 50%;
+    width: 40px;
+    height:40px;
+    min-width: 40px;
+    min-height: 40px;
+    margin-right: 10px;
+}
+
+.number
+{
+    min-width: 50px;
+    text-align: center;
+}
+
+.rank-name
+{
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.rank-score
+{
+    flex-grow: 1;
+    text-align: right;
+    margin-right: 15px;
+}
+
+.invite-word {
+    margin-top:10px;
+    margin-bottom:10px;
+    font-size:small;    
+    text-align: center;
+}
+
+.btn-share
+{
+    background-color: #cb8f91;
+    color: white;      
+    padding: 10px;
+    text-align: center;
+    position: fixed;
+    bottom: 2px;
+    left: 0;
+    right: 50%;
+    z-index: 2;
+    border-radius:20px;    
+}
+
+.btn-contact
+{
+    background-color: #09bb07;
+    color: white;      
+    padding: 10px;
+    text-align: center;
+    position: fixed;
+    bottom: 2px;
+    left: 50%;
+    right: 2px;
+    z-index: 2;    
+    border-radius:20px;
+}

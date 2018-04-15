@@ -1,0 +1,47 @@
+/* pages/recite/words.wxss */
+page {
+    color: white;
+}
+
+.layer {
+    background-image: linear-gradient(to bottom, #0f2037 0%, #1d3351 100%);
+}
+
+.title {                
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;    
+    height: 120px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    background-color: #233b5e;
+    color: white;
+}
+
+.title p {
+    margin-top: 10px;
+}
+
+.phonetic {
+    width: 16px;
+    height: 16px;
+    margin-top: 14px;
+    margin-left: 10px;
+}
+
+.cell {
+    background-color: #233b5e;    
+    padding: 15px 10px;    
+    margin:0px 15px 10px 15px;    
+    border-left: 3px solid #67bb97;
+}
+
+.btn-next {
+    color: white;
+    background-color: #508f99;
+    border-color: #508f99;
+}

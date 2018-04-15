@@ -1,0 +1,9 @@
+<div class="container-fluid">
+    <div class="background-layer" style="background-color: {{colors[index]}};"></div>
+    <div class="row">
+        <div class="col-24 text-center">
+            <p class="title">{{title[title_index]}}</p>
+            <image src="/resource/image/infinity/loaders/{{loader[loader_index]}}" mode="aspectFit" class="loader"></image>
+        </div>
+    </div>    
+</div>

@@ -1,0 +1,66 @@
+.layer {    
+    background-image: linear-gradient(to bottom, #ffffff 0%, #eff0f5 100%);
+}
+
+.title {                
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;    
+    height: 120px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    background-color: #1396ff;
+    color: white;
+}
+
+.sound
+{    
+    margin-top: 20px;
+}
+
+.phonetic {
+    width: 16px;
+    height: 16px;
+    margin-top: 6px;
+    margin-left: 10px;
+}
+
+.cell {
+    background-color: white;    
+    padding: 15px 10px;    
+    margin:0px 15px 10px 15px;    
+}
+
+.footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 50px;
+    text-align: center;
+}
+
+.correct-dot {
+    color: #09bb07;
+    font-weight: bold;
+}
+
+.error-dot {
+    color: #fe8968;
+    font-weight: bold;
+}
+
+.timer {
+    color: #68a0fe;
+    font-weight: bold;
+}
+
+.endtest {
+    background-color:#6665ff;
+    padding:5px 10px;
+    border-radius:15px;
+    color: white;
+}

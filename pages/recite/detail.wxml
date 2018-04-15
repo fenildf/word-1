@@ -1,0 +1,53 @@
+<div class="container-fluid">    
+    <div class="background-layer layer"></div>    
+    <div class="title"> 
+        <p class="h3">{{word}}</p>
+        <div wx:if="{{phonetic}}" class="flex-box sound" bindtap="playVoice">
+            <p>[{{phonetic}}]</p>
+            <image src="{{SEARCH_SOUND_IMG}}" class="phonetic"></image>
+        </div>
+    </div>
+
+    <div class="row" style="margin-top:160px;">
+        <div class="col-24">
+            <block wx:for="{{explains}}" wx:for-item="item" wx:key="" wx:for-index="i">
+                <div wx:if="{{index < daily_word}}" class="cell cell-today">
+                    <p class="text-title">{{item}}</p>
+                </div>
+                <div wx:elif="{{index < daily_word * 2}}" class="cell cell-day1">
+                    <p class="text-title">{{item}}</p>
+                </div>
+                <div wx:else class="cell cell-day2">
+                    <p class="text-title">{{item}}</p>
+                </div>
+            </block>
+        </div>
+    </div>
+
+    <div class="row" style="margin-top:20px;">
+        <div class="col-24">
+            <p class="text-center"><small>查看例句</small></p>            
+            <block wx:for="{{sentence}}" wx:for-item="item" wx:key="">
+                <p>{{item.orig}}</p>
+                <p>{{item.trans}}</p>
+            </block>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="flex-row" style="margin-top:20px; margin-bottom:20px;">
+            <block wx:if="{{isfirst == 1}}">
+                <button class="btn btn-info flex-item" bindtap="back">返回</button>
+                <button class="btn btn-next flex-item" bindtap="next" data-index="{{index + 1}}">下一个</button>
+            </block>
+            <block wx:elif="{{islast == 1}}">
+                <button class="btn btn-info flex-item" bindtap="prev" data-index="{{index - 1}}">上一个</button>
+                <button class="btn btn-next flex-item" bindtap="back">返回</button>
+            </block>
+            <block wx:else>
+                <button class="btn btn-info flex-item" bindtap="prev" data-index="{{index - 1}}">上一个</button>
+                <button class="btn btn-next flex-item" bindtap="next" data-index="{{index + 1}}">下一个</button>
+            </block>
+        </div>        
+    </div>
+</div>

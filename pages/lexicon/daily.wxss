@@ -1,0 +1,54 @@
+/* pages/lexicon/choice.wxss */
+
+.layer {
+    background-image: linear-gradient(to bottom, #fff 0%, #eff0f5 100%);
+}
+
+.option-box {
+    margin-top: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: white;
+}
+
+.option-box .cell {
+    display: flex;
+    padding: 10px;
+    border-bottom: 1px solid #b6bdc5;
+    align-items: center;
+}
+
+.option-box .cell:last-child {
+    border-bottom: none;
+}
+
+.option-box .cell .content {
+    flex: 1;
+}
+
+.option-box .cell .sub-title {
+    font-size: small;
+    color: #7a8197;
+    margin-top: 3px;
+}
+
+.memo {
+    margin-top: 16px;
+}
+
+.memo p, .memo li {
+    font-size: small;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    list-style-position: inside;
+    color: #fe8968;
+    font-weight: bold;
+}
+
+.btn-inactive {
+    background-color: #6665ff;
+}
+
+.btn-confirm {
+    background-color: #ef7a82;
+}

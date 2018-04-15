@@ -1,0 +1,95 @@
+<div class="container"> 
+    <div class="background-layer layer"></div>
+    <div class="row"> 
+        <div class="col-22 col-offset-1">
+            <div class="box" style="margin-top:30px;">
+                <image wx:if="{{pass == 1}}" src="{{SIGNIN_SUCCESS}}" style="width:{{width}}px; height:{{height}}px;"></image>
+                <image wx:else src="{{SIGNIN_FAIL}}" style="width:{{width}}px; height:{{height}}px;"></image>
+                <p wx:if="{{pass == 1}}" class="result success animated tada">签到成功</p>
+                <p wx:elif="{{pass == 0}}" class="result fail animated shake">签到失败</p>                
+                <div wx:if="{{pass == 1}}" class="board">
+                    <div bindtap="info" data-key="signin">
+                        <p class="iconfont icon-signin" style="color:#59d654;"></p>
+                        <p class="number">{{signin_success}}</p>
+                        <p class="explain">累计天数</p>
+                    </div>
+                    <div bindtap="info" data-key="wordcount">
+                        <p class="iconfont icon-english" style="color:gold;"></p>
+                        <p class="number">{{word_count}}</p>
+                        <p class="explain">已签单词</p>
+                    </div>
+                    <div bindtap="info" data-key="level">
+                        <p class="iconfont icon-crown" style="color:#ff6d7f;"></p>
+                        <p class="number">{{level}}</p>
+                        <p class="explain">我的等级</p>
+                    </div>
+                </div>
+                <div wx:else class="board">
+                    <div bindtap="info" data-key="usetime">
+                        <p class="iconfont icon-signin" style="color:#59d654;"></p>
+                        <p class="number">{{display_time}}</p>
+                        <p class="explain">签到用时</p>
+                    </div>
+                    <div bindtap="info" data-key="rate">
+                        <p class="iconfont icon-english" style="color:gold;"></p>
+                        <p class="number">{{display_rate}}%</p>
+                        <p class="explain">正确率</p>
+                    </div>
+                    <div bindtap="info" data-key="level">
+                        <p class="iconfont icon-crown" style="color:#ff6d7f;"></p>
+                        <p class="number">{{level}}</p>
+                        <p class="explain">我的等级</p>
+                    </div>
+                </div>
+            </div>
+            <div wx:if="{{pass == 1}}" class="share-group">
+                <button open-type="share" class="circle share-friend">
+                    <p class="iconfont icon-share"></p>
+                </button>
+                <button open-type="contact" class="circle share-friendcircle">
+                    <p class="iconfont icon-leaderboard"></p>
+                </button>
+            </div>
+            <div wx:else class="share-group">
+                <button bindtap="again" class="circle share-friend">
+                    <p class="iconfont icon-replay"></p>
+                </button>
+                <button bindtap="list" class="circle list">
+                    <p class="iconfont icon-list"></p>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div wx:if="{{error > 0}}" class="row text-center" style="margin-top:42px;" bindtap="toggleError">
+        <div class="col-24">
+            <p class="explain" style="color: #fe8968; font-weight:bold;">错词列表 <span class="iconfont {{icon_error}}"></span></p>
+        </div>
+    </div>
+    <div wx:if="{{error > 0}}" class="row text-center {{error_box}}" style="margin-top:20px;font-size:small; color:#7a889d;">
+        <div class="col-24">
+            <p class="explain">说明：需要所有考核单词都正确才算签到成功</p>
+        </div>
+    </div>
+    <div wx:if="{{error > 0}}" class="row {{error_box}}" style="margin-top:20px;">
+        <div class="col-24">
+            <block wx:for="{{error_words}}" wx:for-item="item" wx:key="">
+                <div class="word-cell cell-finish">
+                    <div class="word">
+                        <p class="en">{{item['word']}}</p>
+                        <p class="cn">{{item['answer']}}</p>
+                    </div>
+                </div>
+            </block>
+        </div>
+    </div>
+    <div wx:if="{{error > 8 && error_box != 'hidden'}}" class="row text-center" style="margin-top:10px;" bindtap="closeError">
+        <div class="col-24">
+            <p>
+                <small>收起列表
+                    <span class="iconfont icon-up"></span>
+                </small>
+            </p>
+        </div>
+    </div>
+    <div class="addfooter"></div>
+</div>

@@ -1,0 +1,95 @@
+<div class="container">
+    <div class="background-layer layer"></div>
+    <div class="text-center" style="height:45px;">
+        <image src="/resource/image/review/stage-header.png" class="review-header"></image>
+    </div>
+    <div class="row level-container">
+        <div class="col-24">
+            <swiper style="{{swiper_height_style}}" indicator-dots="true" indicator-color="#25445e" indicator-active-color="#d4f3fe">
+                <block wx:for="{{swiper_count}}" wx:key="" wx:for-item="i">
+                    <swiper-item>
+                        <block wx:for="{{cell_rows_count}}" wx:for-item="item" wx:key="" wx:for-index="j">
+                            <div class="row">
+                                <div class="col-24 box">
+                                    <block wx:for="{{columns}}" wx:for-item="level" wx:key="" wx:for-index="k">
+                                        <block wx:if="{{i * page_cell_count + j * 4 + k + 1 <= cell_count}}">
+                                            <block wx:if="{{progress[i * page_cell_count + j * 4 + k]['state'] == 'inactive'}}">
+                                                <div class="level-icon lock" wx:if="{{k == 0}}" style="{{first_cell_style}}" bindtap="into" data-number="{{i * page_cell_count + j * 4 + k + 1}}">
+                                                    <p style="opacity:0;">{{i * page_cell_count + j * 4 + k + 1}}</p>
+                                                </div>
+                                                <div class="level-icon lock" wx:elif="{{k == 3}}" style="{{last_cell_style}}" bindtap="into" data-number="{{i * page_cell_count + j * 4 + k + 1}}">
+                                                    <p style="opacity:0;">{{i * page_cell_count + j * 4 + k + 1}}</p>
+                                                </div>
+                                                <div class="level-icon lock" wx:else style="{{cell_style}}" bindtap="into" data-number="{{i * page_cell_count + j * 4 + k + 1}}">
+                                                    <p style="opacity:0;">{{i * page_cell_count + j * 4 + k + 1}}</p>
+                                                </div>
+                                            </block>
+                                            <block wx:elif="{{progress[i * page_cell_count + j * 4 + k]['state'] == 'active'}}">
+                                                <div class="level-icon unlock" wx:if="{{k == 0}}" style="{{first_cell_style}}" bindtap="into" data-number="{{i * page_cell_count + j * 4 + k + 1}}">
+                                                    <p>{{i * page_cell_count + j * 4 + k + 1}}</p>
+                                                </div>
+                                                <div class="level-icon unlock" wx:elif="{{k == 3}}" style="{{last_cell_style}}" bindtap="into" data-number="{{i * page_cell_count + j * 4 + k + 1}}">
+                                                    <p>{{i * page_cell_count + j * 4 + k + 1}}</p>
+                                                </div>
+                                                <div class="level-icon unlock" wx:else style="{{cell_style}}" bindtap="into" data-number="{{i * page_cell_count + j * 4 + k + 1}}">
+                                                    <p>{{i * page_cell_count + j * 4 + k + 1}}</p>
+                                                </div>
+                                            </block>
+                                            <block wx:else>
+                                                <block wx:if="{{progress[i * page_cell_count + j * 4 + k]['star'] == 1}}">
+                                                    <div class="level-icon level1" wx:if="{{k == 0}}" style="{{first_cell_style}}" bindtap="into" data-number="{{i * page_cell_count + j * 4 + k + 1}}">
+                                                        <p>{{i * page_cell_count + j * 4 + k + 1}}</p>
+                                                    </div>
+                                                    <div class="level-icon level1" wx:elif="{{k == 3}}" style="{{last_cell_style}}" bindtap="into" data-number="{{i * page_cell_count + j * 4 + k + 1}}">
+                                                        <p>{{i * page_cell_count + j * 4 + k + 1}}</p>
+                                                    </div>
+                                                    <div class="level-icon level1" wx:else style="{{cell_style}}" bindtap="into" data-number="{{i * page_cell_count + j * 4 + k + 1}}">
+                                                        <p>{{i * page_cell_count + j * 4 + k + 1}}</p>
+                                                    </div>
+                                                </block>
+                                                <block wx:elif="{{progress[i * page_cell_count + j * 4 + k]['star'] == 2}}">
+                                                    <div class="level-icon level2" wx:if="{{k == 0}}" style="{{first_cell_style}}" bindtap="into" data-number="{{i * page_cell_count + j * 4 + k + 1}}">
+                                                        <p>{{i * page_cell_count + j * 4 + k + 1}}</p>
+                                                    </div>
+                                                    <div class="level-icon level2" wx:elif="{{k == 3}}" style="{{last_cell_style}}" bindtap="into" data-number="{{i * page_cell_count + j * 4 + k + 1}}">
+                                                        <p>{{i * page_cell_count + j * 4 + k + 1}}</p>
+                                                    </div>
+                                                    <div class="level-icon level2" wx:else style="{{cell_style}}" bindtap="into" data-number="{{i * page_cell_count + j * 4 + k + 1}}">
+                                                        <p>{{i * page_cell_count + j * 4 + k + 1}}</p>
+                                                    </div>
+                                                </block>
+                                                <block wx:elif="{{progress[i * page_cell_count + j * 4 + k]['star'] == 3}}">
+                                                    <div class="level-icon level3" wx:if="{{k == 0}}" style="{{first_cell_style}}" bindtap="into" data-number="{{i * page_cell_count + j * 4 + k + 1}}">
+                                                        <p>{{i * page_cell_count + j * 4 + k + 1}}</p>
+                                                    </div>
+                                                    <div class="level-icon level3" wx:elif="{{k == 3}}" style="{{last_cell_style}}" bindtap="into" data-number="{{i * page_cell_count + j * 4 + k + 1}}">
+                                                        <p>{{i * page_cell_count + j * 4 + k + 1}}</p>
+                                                    </div>
+                                                    <div class="level-icon level3" wx:else style="{{cell_style}}" bindtap="into" data-number="{{i * page_cell_count + j * 4 + k + 1}}">
+                                                        <p>{{i * page_cell_count + j * 4 + k + 1}}</p>
+                                                    </div>
+                                                </block>
+                                                <block wx:else>
+                                                    <div class="level-icon unlock" wx:if="{{k == 0}}" style="{{first_cell_style}}" bindtap="into" data-number="{{i * page_cell_count + j * 4 + k + 1}}">
+                                                        <p>{{i * page_cell_count + j * 4 + k + 1}}</p>
+                                                    </div>
+                                                    <div class="level-icon unlock" wx:elif="{{k == 3}}" style="{{last_cell_style}}" bindtap="into" data-number="{{i * page_cell_count + j * 4 + k + 1}}">
+                                                        <p>{{i * page_cell_count + j * 4 + k + 1}}</p>
+                                                    </div>
+                                                    <div class="level-icon unlock" wx:else style="{{cell_style}}" bindtap="into" data-number="{{i * page_cell_count + j * 4 + k + 1}}">
+                                                        <p>{{i * page_cell_count + j * 4 + k + 1}}</p>
+                                                    </div>
+                                                </block>
+                                            </block>
+                                        </block>
+                                    </block>
+                                </div>
+                            </div>
+                        </block>
+                    </swiper-item>
+                </block>
+            </swiper>
+            <image src="/resource/image/review/info.png" class="info" bindtap="info"></image>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,102 @@
+page {
+    color: #1f314a;
+}
+
+/*
+ * 白色文本
+ */
+.text-white {
+    color: white;
+}
+
+/*
+ * 主要文本
+ */
+.text-primary {    
+    color: #1f314a;
+}
+
+/*
+ * 次要文本
+ */
+.text-secondary {    
+    color: #7a8197;
+}
+
+/*
+ * 背景图层
+ */
+.background-layer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -10;
+} 
+
+.fixed-top {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 50%;
+    z-index: -9;
+}
+
+.flex-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+}
+
+/**
+ * 固定底部按钮
+ */
+.fixed-bottom-button
+{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;     
+    color:white;
+    text-align:center;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/**
+ * 今日单词
+ */
+.cell-today {
+    border-left: 3px solid #67bb97;
+}
+
+/**
+ * 昨日单词
+ */
+.cell-day1 {
+    border-left: 3px solid #fe8968;
+}
+
+/**
+ * 前日单词
+ */
+.cell-day2 {
+    border-left: 3px solid #68a0fe;
+}
+
+.addfooter
+{
+    height: 30px;
+}
+
+.footer
+{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}

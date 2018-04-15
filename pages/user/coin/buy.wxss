@@ -1,0 +1,27 @@
+/* pages/user/coin/buy.wxss */
+
+.cell
+{
+    background-color:rgba(187, 205, 243, 0.3);
+    text-align:center;
+    padding:10px;
+    border-radius:10px;
+    font-weight:bold;
+    color:#FFD545;
+    margin-top: 20px;
+    max-width: 143px;    
+}
+
+image
+{
+    border-radius: 10px;
+    width: 120px;
+    height: 120px;
+}
+
+.box
+{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;    
+}

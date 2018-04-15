@@ -1,0 +1,51 @@
+{
+	"description": "项目配置文件。",
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "1.9.7",
+	"appid": "wx92c68dae5a8bb046",
+	"projectname": "%E5%85%A8%E6%B0%91%E5%8D%95%E8%AF%8D",
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": [
+				{
+					"id": 0,
+					"name": "单人聊天会话中的问问分享",
+					"pathName": "pages/search/index",
+					"query": "scene=share&fromcustid=1",
+					"scene": "1007"
+				},
+				{
+					"id": -1,
+					"name": "测试",
+					"pathName": "pages/test/start",
+					"query": "c=15&e=0&t=12.21"
+				},
+				{
+					"id": -1,
+					"name": "巅峰挑战",
+					"pathName": "pages/infinity/index",
+					"query": "scene=share&fromcustid=1"
+				}
+			]
+		}
+	}
+}

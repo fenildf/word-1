@@ -1,0 +1,155 @@
+/* pages/recite/index.wxss */
+
+.calendar-box {
+    display: flex;
+    align-items: center;
+    padding-bottom: 30px;
+    color: white;
+    background-image: linear-gradient(to bottom, #6295eb 0%, #586fc2 50%, #5052a4 100%);
+    box-shadow: 0px 11px 2px 1px rgba(234, 234, 229, 0.3);
+}
+
+.calendar-box .left {
+    width: 30%;
+    text-align: center;
+}
+
+.calendar-box .left .today {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    /*background-color: #fe6ec2;*/
+    background-color: #ef7a82;
+    margin-left: auto;
+}
+
+.calendar-box .left .today p {
+    font-size: 2rem;
+}
+
+.calendar-box .left .today .month {
+    font-size: 0.8rem;
+}
+
+.calendar-box .right {
+    width: 70%;
+    font-size: 12px;
+}
+
+.calendar-box .right .box {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.weekrow, .weeks {
+    display: flex;
+    justify-content: space-around;
+}
+
+.daycell, .week {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+    height: 20px;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.active {
+    background-color: #8497ee;
+}
+
+.signin-box {
+    display: flex;
+    align-items: center;
+    margin: 15px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background-color: white;
+    box-shadow: 3px 3px 2px 1px rgba(234, 234, 229, 0.8);
+}
+
+.left-icon {
+    color: #ef7a82;
+    width: 50px;
+    text-align: center;
+    font-size: 1.5rem;
+    border-right: 1px solid #eee;
+}
+
+.name {
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+.content {
+    flex-grow: 1;
+    padding-left: 20px;
+}
+
+.right-icon {
+    width: 50px;
+    text-align: center;
+}
+
+.mid-box {
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    margin-top: -15px;
+}
+
+.review, .data {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    box-shadow: 3px 3px 2px 1px rgba(234, 234, 229, 0.8);
+    padding-top: 15px;
+    padding-bottom: 15px;
+    flex-grow: 1;
+}
+
+.review {
+    margin: 15px 5px 15px 15px;
+}
+
+.data {
+    margin: 15px 15px 15px 5px;
+}
+
+.maxim-box {
+    background-color: white;
+    margin: 0px 15px 15px 15px;
+    box-shadow: 3px 3px 2px 1px rgba(234, 234, 229, 0.8);
+    padding: 15px;
+}
+
+.maxim-box .title {
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.maxim-box .title span {
+    color: #ef7a82;
+}
+
+.en {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.layer {
+    position: fixed;
+    top: 50%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -2;
+    background-color: white;
+}

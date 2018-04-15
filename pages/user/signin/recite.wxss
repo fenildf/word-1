@@ -1,0 +1,62 @@
+/* pages/user/signin/recite.wxss */
+
+.layer {
+    background-image: linear-gradient(to bottom, #fff 0%, #eff0f5 100%);
+}
+
+.content {
+    margin-left: 20px;
+    flex-grow: 1;
+}
+
+.explain {
+    text-align: center;
+    font-size: small;
+    margin-top: 30px;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    background-color: white;
+    height: 60px;
+    padding-right: 10px;
+}
+
+.number {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    height: 60px;
+    width: 60px;
+}
+
+.index {
+    font-size: 2rem;
+}
+
+.name {
+    font-weight: bold;
+}
+
+.bottom {
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.words {
+    font-size: small;
+    min-width: 100px;
+}
+
+.people {
+    font-size: small;
+    margin-left: 20px;
+}
+
+.iconfont {
+    color: #1f314a;
+}

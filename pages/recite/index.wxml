@@ -1,0 +1,85 @@
+<div class="container-fluid"> 
+    <div class="calendar-box">
+        <div class="left">
+            <div class="today">
+                <p>{{current_day}}</p>
+                <p class="month">{{month_string}}</p>
+            </div>
+        </div>
+        <div class="right">
+            <div class="box">
+                <div class="weeks">
+                    <div class="week" wx:for="SMTWTFS" wx:key="">{{item}}</div>
+                </div>
+                <div class="days">
+                    <block wx:for="{{days_array}}" wx:for-item="item" wx:key="" wx:for-index="i">
+                        <div class="weekrow">
+                            <block wx:for="{{days_array[i]}}" wx:for-item="day" wx:key="">
+                                <div class="daycell" wx:if="{{day.value <= 0}}"></div>
+                                <div class="daycell active" wx:elif="{{day.state == 'active'}}">
+                                    <p>{{day.value}}</p>
+                                </div>
+                                <div class="daycell" wx:else>
+                                    <p>{{day.value}}</p>
+                                </div>
+                            </block>
+                        </div>
+                    </block>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="signin-box" bindtap="jump" data-id="signin">
+        <div class="left-icon">
+            <p class="iconfont icon-signin"></p>
+            <p class="name">签到</p>
+        </div>
+        <div class="content">
+            <p wx:if="{{lexicon_id != -1}}">
+                <strong>{{lexicon_name}}</strong>
+            </p>
+            <p wx:else>
+                <strong>请选择签到词库</strong>
+            </p>
+            <p class="small text-secondary">当前词库进度：{{lexicon_progress}}%</p>
+        </div>
+        <p class="iconfont icon-right right-icon"></p>
+    </div>
+    <div class="mid-box">
+        <div class="review" bindtap="jump" data-id="review">
+            <div class="left-icon">
+                <p class="iconfont icon-emptystar"></p>
+                <p class="name">
+                    <small>{{review_progress}}%</small>
+                </p>
+            </div>
+            <div class="content" style="text-align:center;padding-left:0;">
+                <p>
+                    <strong>复习闯关</strong>
+                </p>
+            </div>
+        </div>
+        <div class="data" bindtap="jump" data-id="data">
+            <div class="left-icon">
+                <p class="iconfont icon-sum"></p>
+                <p class="name">
+                    <small>{{signin_day}}天</small>
+                </p>
+            </div>
+            <div class="content" style="text-align:center;padding-left:0;">
+                <p>
+                    <strong>数据统计</strong>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="maxim-box">
+        <p class="title">
+            <span class="iconfont icon-heart"></span> 每日一句</p>
+        <image src="{{img}}" mode="aspectFit" style="width:{{width}}px;height:{{height}}px;"></image>
+        <p class="en">{{maxim_en}}</p>
+        <p class="cn">{{maxim_cn}}</p>
+    </div>
+    <div class="addfooter"></div>
+    <div class="layer"></div>
+</div>

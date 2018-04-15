@@ -1,0 +1,134 @@
+/* pages/recite/score.wxss */
+
+.layer {    
+    background-image: linear-gradient(to bottom, #eff0f5 0%, #eff0f5 100%);
+}
+
+.box {
+    background-color: white;
+    border-radius: 20px;
+}
+
+.box image {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.result {
+    font-size: 1.75rem;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.fail {
+    color: #1396ff;
+}
+
+.success {
+    color: #ef7a82;
+}
+
+.board {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+    text-align: center;
+    padding-bottom: 80px;
+}
+
+.board .iconfont {
+    font-size: 20px; 
+}
+
+.board .number {
+    color: #1f314a;
+    font-weight: bold;
+    font-size: 1.25rem;
+}
+
+.explain {
+    font-size: small;
+    color: #7a8197;    
+    white-space: nowrap;
+}
+
+.share-group {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.circle {
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -30px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.share-friend {
+    background-color: #6665ff;
+}
+
+.share-friend p {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: white;
+}
+
+.share-friendcircle {
+    background-color: #09bb07;
+}
+
+.share-friendcircle p {
+    font-size: 1.5rem;
+    color: white;
+}
+
+.list {
+    background-color: #09bb07;
+}
+
+.list p {
+    font-size: 1.5rem;
+    color: white;
+    font-weight: bold;
+}
+
+.share-friendcircle {
+    background-color: #09bb07;
+}
+
+.share-friendcircle p {
+    font-size: 1.5rem;
+    color: white;
+}
+
+.word-cell {
+    background-color: white;
+    padding: 10px;
+    margin: 10px 0px;
+}
+
+.cell-finish {
+    border-left: 3px solid #fe8968;
+}
+
+.en {
+    font-weight: bold;
+    color: #1f314a;
+}
+
+.cn {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    color: #7a8197;
+    font-size: small;
+}

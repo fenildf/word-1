@@ -1,0 +1,64 @@
+<div class="container-fluid">
+    <div class="background-layer layer"></div>
+    <div class="user">
+        <image class="img-circle" src="{{avatarUrl}}" style="width:160rpx; height:160rpx;"></image>
+        <div style="margin-left:70rpx;">
+            <p class="nickname ">{{nickName}}</p>
+            <button wx:if="{{isAuthorize == 0}}" class="btn btn-authorize" open-type="getUserInfo" bindgetuserinfo="userInfoHandler" lang="zh_CN">点我授权</button>
+        </div>
+    </div>
+    <div class="row section-spacing">
+        <div class="col-24">
+            <p class="title">资源</p>
+            <div class="group section-spacing">
+                <div class="item" bindtap="jump" data-id="coindetail">
+                    <image src="/resource/image/icon/ucoin.png" class="icon"></image>
+                    <p class="text last">金币：{{coin}}</p>
+                    <p class="iconfont icon-right"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row section-spacing">
+        <div class="col-24">
+            <p class="title">统计</p>
+            <div class="group section-spacing">
+                <div class="item" bindtap="jump" data-id="signin">
+                    <image src="/resource/image/icon/usignin.png" class="icon"></image>
+                    <p class="text">签到记录</p>
+                    <p class="iconfont icon-right"></p>
+                </div>
+                <div class="item" bindtap="jump" data-id="data">
+                    <image src="/resource/image/icon/udata.png" class="icon"></image>
+                    <p class="text last">用户数据</p>
+                    <p class="iconfont icon-right"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row section-spacing">
+        <div class="col-24">
+            <p class="title">设置</p>
+            <div class="group section-spacing">
+                <div class="item" bindtap="toggleSound">
+                    <image src="/resource/image/icon/ueffect.png" class="icon"></image>
+                    <p class="text">答题音效</p>
+                    <p wx:if="{{globalSoundEffect == 1}}" class="iconfont icon-icon"></p>
+                    <p wx:else class="iconfont icon-icon1"></p>
+                </div>
+                <div class="item" bindtap="togglePhonetic">
+                    <image src="/resource/image/icon/usound.png" class="icon"></image>
+                    <p class="text">自动发音</p>
+                    <p wx:if="{{autoPlayPhonetic == 1}}" class="iconfont icon-icon"></p>
+                    <p wx:else class="iconfont icon-icon1"></p>
+                </div>
+                <div class="item" bindtap="jump" data-id="lexicon">
+                    <image src="/resource/image/icon/ubook.png" class="icon"></image>
+                    <p class="text last">签到词库</p>
+                    <p class="iconfont icon-right"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="addfooter"></div>
+</div>

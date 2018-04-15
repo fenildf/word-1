@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="background-layer layer"></div>
+    <block wx:for="{{bills}}" wx:for-item="item" wx:key="">
+        <div class="cell cell-add" wx:if="{{item['value'] >= 0}}">
+            <div class="left">
+                <p class="source">{{item['source']}}</p>
+                <p class="text-secondary small">{{item['date']}}</p>
+            </div>
+            <p class="value add">+{{item['value']}}</p>
+        </div>
+        <div class="cell cell-sub" wx:else>
+            <div class="left">
+                <p class="source">{{item['source']}}</p>
+                <p class="text-secondary small">{{item['date']}}</p>
+            </div>
+            <p class="value sub">{{item['value']}}</p>
+        </div>
+    </block>
+    <div class="row explain text-secondary" wx:if="{{bills.length >= 30}}">
+        <div class="col-24">
+            <p>仅显示最近30条金币变化记录</p>
+        </div>
+    </div>
+    <div class="addfooter"></div>
+</div>

@@ -1,0 +1,204 @@
+<div class="container-fluid">
+    <div class="background-layer">
+        <image src="/resource/image/infinity/score.jpg" mode="aspectFill" style="width: {{width}}px; height: {{height}}px;"></image>
+    </div>
+    <swiper current="1" indicator-dots="true" indicator-color="#25445e" indicator-active-color="#d4f3fe" style="height: {{height}}px;" bindchange="swiperChange">
+        <swiper-item>
+            <div class="wrong-word" style="margin-top:60px;">
+                <div class="title">
+                    <p class="h3">{{words[index]['word']}}</p>
+                    <div class="flex-row" bindtap="playVoice">
+                        <p wx:if="{{words[index]['phonetic']}}">[{{words[index]['phonetic']}}]</p>
+                        <image src="/resource/image/icon/sound.png" class="phonetic"></image>
+                    </div>
+                </div>
+                <block wx:for="{{words[index]['explain']}}" wx:key="" wx:for-index="fpos" wx:for-item="item">
+                    <block wx:if="{{fpos == pos}}">
+                        <div class="explain">
+                            <p class="iconfont icon-icon1 cell-error"></p>
+                            <p class="text-title">{{item}}</p>
+                        </div>
+                    </block>
+                    <block wx:elif="{{fpos == words[index]['pos']}}">
+                        <div class="explain">
+                            <p class="iconfont icon-icon cell-correct"></p>
+                            <p class="text-title">{{item}}</p>
+                        </div>
+                    </block>
+                </block>
+                <button class="btn-explain" bindtap="explain">完整释义</button>
+            </div>
+        </swiper-item>
+        <swiper-item>
+            <div class="mainboard" style="height: {{height - 14}}px;">
+                <scroll-view scroll-y style="height:{{height - 14}}px;" scroll-into-view="{{scroll_id}}">
+                    <div id="score-board" style="margin-top:{{score_board}}px;">
+                        <div class="row">
+                            <div class="col-24 text-center animated zoomIn">
+                                <p wx:if="{{is_history_top == 1}}" class="score" style="color:gold;">{{score}}</p>
+                                <p wx:elif="{{is_season_top == 1}}" class="score" style="color:pink;">{{score}}</p>
+                                <p wx:else class="score">{{score}}</p>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top: 10px;">
+                            <div class="col-24 cell">
+                                <div class="box">
+                                    <p class="sub-score" style="color:pink;">{{season}}</p>
+                                    <p class="name">赛季最高分</p>
+                                </div>
+                                <div class="box">
+                                    <p class="sub-score" style="color:gold;">{{history}}</p>
+                                    <p class="name">历史最高分</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-24 cell">
+                                <div class="box">
+                                    <p class="sub-score" style="color:lawngreen;">{{index}}</p>
+                                    <p class="name">正确单词数</p>
+                                </div>
+                                <div class="box">
+                                    <p class="sub-score" style="color:deepskyblue;">{{time}}s</p>
+                                    <p class="name">挑战总用时</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top: 45px;">
+                            <div class="col-18 col-offset-3">
+                                <block wx:if="{{recover_time > 0}}">
+                                    <button wx:if="{{recover_cost == 0}}" class="btn-recover" bindtap="recover">继续挑战</button>
+                                    <button wx:else class="btn-recover" bindtap="recover">继续挑战
+                                        <span style="color:gold;">{{recover_cost}}金币</span>
+                                    </button>
+                                </block>
+                                <div class="button-group">
+                                    <div class="text-center">
+                                        <button class="btn-again" bindtap="again">
+                                            <p class="iconfont icon-replay"></p>
+                                        </button>
+                                        <p>再来一局</p>
+                                    </div>
+                                    <div class="text-center">
+                                        <button class="btn-share" open-type="share">
+                                            <p class="iconfont icon-share"></p>
+                                        </button>
+                                        <p>邀请好友</p>
+                                    </div>
+                                    <div class="text-center">
+                                        <button class="btn-contact" open-type="contact">
+                                            <p class="iconfont icon-leaderboard"></p>
+                                        </button>
+                                        <p>分享战绩</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </scroll-view>
+            </div>
+        </swiper-item>
+        <swiper-item>
+            <div class="leaderboard" style="width: {{width - 30}}px; height:{{height-40}}px;">
+                <div class="header">
+                    <p class="countdown">{{countdown_text}}</p>
+                    <div class="area">
+                        <button class="btn {{world}}" bindtap="world">世界</button>
+                        <button class="btn {{friend}}" bindtap="friend">好友</button>
+                    </div>
+                </div>
+                <scroll-view scroll-y style="width: {{width - 30}}px; height:{{scroll_height}}px;">
+                    <div id="content">
+                        <block wx:if="{{world == 'btn-active'}}">
+                            <block wx:for="{{world_board}}" wx:key="" wx:for-item="item" wx:for-index="i">
+                                <!--第一名-->
+                                <div class="rank rank-first" wx:if="{{item['rank'] == 1}}" bindtap="worldRankInfo" data-index="{{i}}">
+                                    <p class="number">{{item['rank']}}</p>
+                                    <image class="avatar" src="{{item['avatar']}}"></image>
+                                    <p class="rank-name">{{item['nickname']}}</p>
+                                    <p class="rank-score">{{item['score']}}</p>
+                                </div>
+                                <!--第二名-->
+                                <div class="rank rank-second" wx:elif="{{item['rank'] == 2}}" bindtap="worldRankInfo" data-index="{{i}}">
+                                    <p class="number">{{item['rank']}}</p>
+                                    <image class="avatar" src="{{item['avatar']}}"></image>
+                                    <p class="rank-name">{{item['nickname']}}</p>
+                                    <p class="rank-score">{{item['score']}}</p>
+                                </div>
+                                <!--第三名-->
+                                <div class="rank rank-third" wx:elif="{{item['rank'] == 3}}" bindtap="worldRankInfo" data-index="{{i}}">
+                                    <p class="number">{{item['rank']}}</p>
+                                    <image class="avatar" src="{{item['avatar']}}"></image>
+                                    <p class="rank-name">{{item['nickname']}}</p>
+                                    <p class="rank-score">{{item['score']}}</p>
+                                </div>
+                                <!--自己-->
+                                <div class="rank rank-self" wx:elif="{{item['rank'] == world_rank}}" bindtap="worldRankInfo" data-index="{{i}}">
+                                    <p class="number">{{item['rank']}}</p>
+                                    <image class="avatar" src="{{item['avatar']}}"></image>
+                                    <p class="rank-name">{{item['nickname']}}</p>
+                                    <p class="rank-score">{{item['score']}}</p>
+                                </div>
+                                <!--其他-->
+                                <div class="rank" wx:else bindtap="worldRankInfo" data-index="{{i}}">
+                                    <p class="number">{{item['rank']}}</p>
+                                    <image class="avatar" src="{{item['avatar']}}"></image>
+                                    <p class="rank-name">{{item['nickname']}}</p>
+                                    <p class="rank-score">{{item['score']}}</p>
+                                </div>
+                            </block>
+                            <div class="friend-bottom">
+                                <p class="invite-word">仅显示赛季得分TOP100的用户</p>
+                            </div>
+                        </block>
+                        <block wx:else>
+                            <block wx:for="{{friend_board}}" wx:key="" wx:for-item="item" wx:for-index="i">
+                                <!--第一名-->
+                                <div class="rank rank-first" wx:if="{{item['rank'] == 1}}" bindtap="friendRankInfo" data-index="{{i}}">
+                                    <p class="number">{{item['rank']}}</p>
+                                    <image class="avatar" src="{{item['avatar']}}"></image>
+                                    <p class="rank-name">{{item['nickname']}}</p>
+                                    <p class="rank-score">{{item['score']}}</p>
+                                </div>
+                                <!--第二名-->
+                                <div class="rank rank-second" wx:elif="{{item['rank'] == 2}}" bindtap="friendRankInfo" data-index="{{i}}">
+                                    <p class="number">{{item['rank']}}</p>
+                                    <image class="avatar" src="{{item['avatar']}}"></image>
+                                    <p class="rank-name">{{item['nickname']}}</p>
+                                    <p class="rank-score">{{item['score']}}</p>
+                                </div>
+                                <!--第三名-->
+                                <div class="rank rank-third" wx:elif="{{item['rank'] == 3}}" bindtap="friendRankInfo" data-index="{{i}}">
+                                    <p class="number">{{item['rank']}}</p>
+                                    <image class="avatar" src="{{item['avatar']}}"></image>
+                                    <p class="rank-name">{{item['nickname']}}</p>
+                                    <p class="rank-score">{{item['score']}}</p>
+                                </div>
+                                <!--自己-->
+                                <div class="rank rank-self" wx:elif="{{item['rank'] == friend_rank}}" bindtap="friendRankInfo" data-index="{{i}}">
+                                    <p class="number">{{item['rank']}}</p>
+                                    <image class="avatar" src="{{item['avatar']}}"></image>
+                                    <p class="rank-name">{{item['nickname']}}</p>
+                                    <p class="rank-score">{{item['score']}}</p>
+                                </div>
+                                <!--其他-->
+                                <div class="rank" wx:else bindtap="friendRankInfo" data-index="{{i}}">
+                                    <p class="number">{{item['rank']}}</p>
+                                    <image class="avatar" src="{{item['avatar']}}"></image>
+                                    <p class="rank-name">{{item['nickname']}}</p>
+                                    <p class="rank-score">{{item['score']}}</p>
+                                </div>
+                            </block>
+                            <div class="friend-bottom">
+                                <p class="invite-word">邀请好友来挑战，丰富你的排行榜 </p>
+                                <button open-type="share" class="share">
+                                    <span class="iconfont icon-fenxiang1"></span>
+                                </button>
+                            </div>
+                        </block>
+                    </div>
+                </scroll-view>
+            </div>
+        </swiper-item>
+    </swiper>
+</div>

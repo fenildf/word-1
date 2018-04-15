@@ -1,0 +1,16 @@
+<div class="container">
+    <div class="background-layer layer"></div>
+    <div class="row" style="margin-top:20px;">
+        <div class="col-24">
+            <block wx:for="{{word_list}}" wx:for-item="item" wx:for-index="i" wx:key="">
+                <div class="cell cell-border animated bounceInRight" bindtap="detail" data-index="{{i}}">
+                    <p class="en">{{item['word']}}</p>
+                    <p class="cn">{{item['explain']}}</p>
+                </div>
+            </block>
+        </div>
+    </div>
+    <div class="addfooter"></div>
+    <div class="addfooter"></div>
+    <button class="fixed-bottom-button btn btn-block btn-confirm" bindtap="begin">开始</button>
+</div>

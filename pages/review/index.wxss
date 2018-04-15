@@ -1,0 +1,61 @@
+/* pages/review/index.wxss */
+
+.layer {
+    background-image: linear-gradient(to bottom, #0f2037 0%, #1d3351 100%);
+}
+
+.review-header {
+    width: 244px;
+    height: 45px;
+}
+
+.level-container {
+    border: 1px solid #3db1da;
+    margin-top: -23px;
+    padding-top: 40px;
+}
+
+.box {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.level-icon {
+    max-width: 50px;
+    max-height: 50px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    color: #d4f3fe;
+}
+
+.unlock {
+    background-image: url('https://jidear.com/word/Public/resource/image/icon/gow/review/unlock.png');
+}
+
+.level1 {
+    background-image: url('https://jidear.com/word/Public/resource/image/icon/gow/review/level1.png');
+}
+
+.level2 {
+    background-image: url('https://jidear.com/word/Public/resource/image/icon/gow/review/level2.png');
+}
+
+.level3 {
+    background-image: url('https://jidear.com/word/Public/resource/image/icon/gow/review/level3.png');
+}
+
+.lock {
+    background-image: url('https://jidear.com/word/Public/resource/image/icon/gow/review/lock.png');
+}
+
+.info {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 12px;
+    right: 8px;
+}

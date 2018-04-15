@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="background-layer layer"></div>    
+    <div class="row" style="margin-top:10px;">
+        <div class="col-24">
+            <block wx:for="{{lexicons}}" wx:for-item="item" wx:key="" wx:for-index="index">
+                <div class="item" bindtap="choice" data-id="{{item['id']}}" data-words="{{item['word_count']}}">                    
+                    <div class="number" style="background-color:{{colors[index % colors.length]}};">
+                        <p class="index">{{item['name'][0]}}</p>
+                    </div>
+                    <div class="content">
+                        <p class="name">{{item['name']}}</p>
+                        <div class="bottom">
+                            <p class="words text-secondary">词汇量：{{item['word_count']}}</p>
+                            <p class="people text-secondary">参与人数：{{item['subscribe']}}</p>
+                        </div>
+                    </div>
+                    <p class="iconfont icon-right"></p>
+                </div>
+            </block>
+        </div>
+    </div>
+</div>

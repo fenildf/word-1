@@ -1,0 +1,65 @@
+<div class="container">
+    <div class="background-layer layer"></div>
+    <div class="text-center" style="margin-top:40px;">
+        <image src="/resource/image/review/complete-header.png" class="completed-header"></image>
+    </div>
+    <div class="completed-container">
+        <image src="{{star_img}}" class="completed-star"></image>
+        <div class="info">            
+            <div class="cell">
+                <image src="/resource/image/review/info-timer.png" class="info-timer"></image>
+                <p>{{display_second}}s</p>
+            </div>
+            <div class="cell">
+                <image src="/resource/image/review/info-swords.png" class="info-swords"></image>
+                <p>{{display_correct}} / {{correct + error}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="action">
+        <block wx:if="{{star == 3}}">
+            <div class="action-button completed" bindtap="jump" data-id="1"></div>
+            <!--<div class="action-button share" bindtap="jump" data-id="2"></div>-->
+        </block>
+        <block wx:else>
+            <div class="action-button refresh" bindtap="jump" data-id="3"></div>
+            <div class="action-button rowcell" bindtap="jump" data-id="1"></div>
+        </block>
+    </div>
+    <div wx:if="{{error > 0}}" class="row text-center" style="margin-top:50px;" bindtap="toggleError">
+        <div class="col-24">
+            <p>
+                <small>错词列表
+                    <span class="iconfont {{icon_error}}"></span>
+                </small>
+            </p>
+        </div>
+    </div>
+    <div wx:if="{{error > 0}}" class="row text-center {{error_box}}" style="margin-top:20px;font-size:small; color:#7a889d;">
+        <div class="col-24">
+            <p>说明：需要所有考核单词都正确才算闯关成功</p>
+        </div>
+    </div>
+    <div wx:if="{{error > 0}}" class="row {{error_box}}" style="margin-top:20px;">
+        <div class="col-24">
+            <block wx:for="{{error_words}}" wx:for-item="item" wx:key="">
+                <div class="word-cell cell-finish">
+                    <div class="word">
+                        <p class="en">{{item['word']}}</p>
+                        <p class="cn">{{item['answer']}}</p>
+                    </div>
+                </div>
+            </block>
+        </div>
+    </div>
+    <div wx:if="{{error > 8 && error_box != 'hidden'}}" class="row text-center" style="margin-top:10px;" bindtap="closeError">
+        <div class="col-24">
+            <p>
+                <small>收起列表
+                    <span class="iconfont icon-up"></span>
+                </small>
+            </p>
+        </div>
+    </div>
+    <div class="addfooter"></div>
+</div>

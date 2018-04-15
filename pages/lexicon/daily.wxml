@@ -1,0 +1,42 @@
+<div class="container-fluid">
+    <div class="background-layer layer"></div>    
+    <div class="row">
+        <div class="col-24">
+            <div class="option-box">                
+                <radio-group>
+                    <block wx:for="{{daily_option}}" wx:for-item="item" wx:key="" wx:for-index="i">
+                        <div class="cell" bindtap="clickChange" data-value="{{item['word']}}" data-index="{{i}}">
+                            <div class="content">
+                                <p class="title">每天{{item['word']}}个新词</p>
+                                <p wx:if="{{item['word'] == 3}}" class="sub-title">一共需{{item['level']}}天（推荐新手选择）</p>
+                                <p wx:elif="{{item['word'] == 8}}" class="sub-title">一共需{{item['level']}}天（推荐白领选择）</p>
+                                <p wx:elif="{{item['word'] == 15}}" class="sub-title">一共需{{item['level']}}天（推荐学生选择）</p>
+                                <p wx:elif="{{item['word'] == 30}}" class="sub-title">一共需{{item['level']}}天（推荐复习选择）</p>
+                                <p wx:else class="sub-title">一共需{{item['level']}}天</p>
+                            </div>
+                            <radio value="{{item['word']}}" checked="{{item.checked}}" />
+                        </div>
+                    </block>
+                </radio-group>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-22 col-offset-1">
+            <div class="memo">
+                <ul>                   
+                    <li>每天签到包括当天新单词+最近2天单词</li>
+                    <li>100%通过考核才能完成每日签到</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="addfooter"></div>
+    <div class="addfooter"></div>    
+    <div class="fixed-bottom-button btn-confirm" wx:if="{{daily_count > 0}}" bindtap="dailyChoice">
+        <p>确定</p>
+    </div>
+    <div class="fixed-bottom-button btn-inactive" wx:else>
+        <p>请选择</p>
+    </div>
+</div>

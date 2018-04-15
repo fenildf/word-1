@@ -1,0 +1,67 @@
+<div class="container"> 
+    <div class="background-layer layer"></div>
+    <div class="row">
+        <div class="col-24">
+            <scroll-view scroll-y='true' class="content" scroll-into-view="{{toVal}}" scroll-with-animation="true" style="height: {{scroll_height}}px; margin-top:10px;">
+                <div class="dialogue">
+                    <image class="avatar" src="{{SEARCH_TALK_IMG}}"></image>
+                    <div class="answer animated fadeInLeft">
+                        <p class="word">Hi {{nickname}}</p>
+                    </div>
+                </div>
+                <block wx:for="{{content}}" wx:for-item="item" wx:key="">
+                    <div class="dialogue right" id="{{item['id']}}">
+                        <p wx:if="{{item['id'] == toVal}}" class="animated fadeInRight">{{item['word']}}</p>
+                        <p wx:else>{{item['word']}}</p>
+                        <image class="avatar" src="{{avatar}}"></image>
+                    </div>
+                    <div class="dialogue">
+                        <image class="avatar" src="{{SEARCH_TALK_IMG}}"></image>
+                        <div wx:if="{{toVal == item['id']}}" class="answer animated fadeInLeft">                            
+                            <div class="header">
+                                <p class="word flex-grow-1">{{item['word']}}</p>
+                                <button wx:if="{{item['explain'] != '查无释义'}}" open-type="share" class="share" data-word="{{item['word']}}">
+                                    <span class="iconfont icon-fenxiang1"></span>
+                                </button>
+                            </div>
+                            <div wx:if="{{item['phonetic']}}" class="sound" bindtap="play" data-word="{{item['word']}}">
+                                <p class="phonetic">[{{item['phonetic']}}]</p>
+                                <image src="{{SEARCH_SOUND_IMG}}" style="width:16px; height:16px;"></image>
+                            </div>
+                            <block wx:for="{{item['explain']}}" wx:for-item="explain" wx:key="">
+                                <p class="explain">{{explain}}</p>
+                            </block>
+                        </div>
+                        <div wx:else class="answer">
+                            <div class="header">
+                                <p class="word flex-grow-1">{{item['word']}}</p>
+                                <button wx:if="{{item['explain'] != '查无释义'}}" open-type="share" class="share" data-word="{{item['word']}}">
+                                    <span class="iconfont icon-fenxiang1"></span>
+                                </button>
+                            </div>
+                            <div wx:if="{{item['phonetic']}}" class="sound" bindtap="play" data-word="{{item['word']}}">
+                                <p class="phonetic">[{{item['phonetic']}}]</p>
+                                <image src="{{SEARCH_SOUND_IMG}}" style="width:16px; height:16px;"></image>
+                            </div>
+                            <block wx:for="{{item['explain']}}" wx:for-item="explain" wx:key="">
+                                <p class="explain">{{explain}}</p>
+                            </block>
+                        </div>
+                    </div>
+                </block>
+            </scroll-view>
+        </div>
+    </div>
+    <div class="share-searchbox">        
+        <div class="row flex-grow-1">
+            <div class="col-20">
+                <input class="inputbox text-secondary" bindinput="input" bindconfirm="search" placeholder="Ask me some words" maxlength="50" confirm-type="search" cursor-spacing="30" value="{{word}}"></input>
+            </div>
+            <div class="col-4">
+                <div class="search" bindtap="search">
+                    <p class="iconfont icon-sousuo"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

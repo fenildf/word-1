@@ -1,0 +1,34 @@
+<div class="container-fluid">
+    <div class="background-layer" style="background-color:{{colors[color_index]}};"></div>
+    <div class="hud">
+        <p class="score">{{score}}</p>
+        <p class="add animated {{score_animated}}">{{add_score}}</p>
+    </div>
+    <div class="title">
+        <p class="h3">{{words[index]['word']}}</p>
+        <div class="flex-row" bindtap="playVoice">
+            <p wx:if="{{words[index]['phonetic']}}">[{{words[index]['phonetic']}}]</p>
+            <image src="/resource/image/icon/sound.png" class="phonetic"></image>
+        </div>
+    </div>
+
+    <div class="row" style="padding-left:15px;padding-right:15px;">
+        <div class="col-24">
+            <progress percent="{{progress}}" style="width:100%" activeColor="rgba(0,0,0,0.3)" backgroundColor="rgba(255,255,255,0.2)"></progress>
+        </div>
+    </div>
+    <div class="row" style="margin-top:20px;">
+        <div class="col-24">
+            <block wx:for="{{words[index]['explain']}}" wx:for-item="item" wx:for-index="i" wx:key="">
+                <div class="cell cell-border" bindtap="selected" data-index="{{i}}">
+                    <p class="text-title">{{item}}</p>
+                </div>
+            </block>
+        </div>
+    </div>
+    <div class="row" style="margin-top:10px;">
+        <div class="col-24">
+            <p class="text-center" style="font-size:smaller; color:white;">请选择一个正确的中文翻译</p>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,102 @@
+<div class="container-fluid">
+    <div class="background-layer">
+        <image src="/resource/image/infinity/score.jpg" mode="aspectFill" style="width: {{width}}px; height: {{height}}px;"></image>
+    </div>
+    <div class="leaderboard">
+        <div class="header">
+            <p class="countdown">{{countdown_text}}</p>
+        </div>
+        <swiper indicator-dots="true" indicator-color="#25445e" indicator-active-color="#d4f3fe" style="height: {{swiper_height}}px;" bindchange="swiperChange">
+            <swiper-item>
+                <scroll-view scroll-y style="width: {{width - 30}}px; height:{{swiper_height - 30}}px;">
+                    <div id="content">
+                        <block wx:for="{{world_board}}" wx:key="" wx:for-item="item" wx:for-index="i">
+                            <!--第一名-->
+                            <div class="rank rank-first" wx:if="{{item['rank'] == 1}}" bindtap="worldRankInfo" data-index="{{i}}">
+                                <p class="number">{{item['rank']}}</p>
+                                <image class="avatar" src="{{item['avatar']}}"></image>
+                                <p class="rank-name">{{item['nickname']}}</p>
+                                <p class="rank-score">{{item['score']}}</p>
+                            </div>
+                            <!--第二名-->
+                            <div class="rank rank-second" wx:elif="{{item['rank'] == 2}}" bindtap="worldRankInfo" data-index="{{i}}">
+                                <p class="number">{{item['rank']}}</p>
+                                <image class="avatar" src="{{item['avatar']}}"></image>
+                                <p class="rank-name">{{item['nickname']}}</p>
+                                <p class="rank-score">{{item['score']}}</p>
+                            </div>
+                            <!--第三名-->
+                            <div class="rank rank-third" wx:elif="{{item['rank'] == 3}}" bindtap="worldRankInfo" data-index="{{i}}">
+                                <p class="number">{{item['rank']}}</p>
+                                <image class="avatar" src="{{item['avatar']}}"></image>
+                                <p class="rank-name">{{item['nickname']}}</p>
+                                <p class="rank-score">{{item['score']}}</p>
+                            </div>
+                            <!--自己-->
+                            <div class="rank rank-self" wx:elif="{{item['rank'] == world_rank}}" bindtap="worldRankInfo" data-index="{{i}}">
+                                <p class="number">{{item['rank']}}</p>
+                                <image class="avatar" src="{{item['avatar']}}"></image>
+                                <p class="rank-name">{{item['nickname']}}</p>
+                                <p class="rank-score">{{item['score']}}</p>
+                            </div>
+                            <!--其他-->
+                            <div class="rank" wx:else bindtap="worldRankInfo" data-index="{{i}}">
+                                <p class="number">{{item['rank']}}</p>
+                                <image class="avatar" src="{{item['avatar']}}"></image>
+                                <p class="rank-name">{{item['nickname']}}</p>
+                                <p class="rank-score">{{item['score']}}</p>
+                            </div>
+                        </block>
+                        <p class="invite-word">仅显示赛季得分TOP100的用户</p>
+                    </div>
+                </scroll-view>
+            </swiper-item>
+            <swiper-item>
+                <scroll-view scroll-y style="width: {{width - 30}}px; height:{{swiper_height - 30}}px;">
+                    <div id="content">
+                        <block wx:for="{{friend_board}}" wx:key="" wx:for-item="item" wx:for-index="i">
+                            <!--第一名-->
+                            <div class="rank rank-first" wx:if="{{item['rank'] == 1}}" bindtap="friendRankInfo" data-index="{{i}}">
+                                <p class="number">{{item['rank']}}</p>
+                                <image class="avatar" src="{{item['avatar']}}"></image>
+                                <p class="rank-name">{{item['nickname']}}</p>
+                                <p class="rank-score">{{item['score']}}</p>
+                            </div>
+                            <!--第二名-->
+                            <div class="rank rank-second" wx:elif="{{item['rank'] == 2}}" bindtap="friendRankInfo" data-index="{{i}}">
+                                <p class="number">{{item['rank']}}</p>
+                                <image class="avatar" src="{{item['avatar']}}"></image>
+                                <p class="rank-name">{{item['nickname']}}</p>
+                                <p class="rank-score">{{item['score']}}</p>
+                            </div>
+                            <!--第三名-->
+                            <div class="rank rank-third" wx:elif="{{item['rank'] == 3}}" bindtap="friendRankInfo" data-index="{{i}}">
+                                <p class="number">{{item['rank']}}</p>
+                                <image class="avatar" src="{{item['avatar']}}"></image>
+                                <p class="rank-name">{{item['nickname']}}</p>
+                                <p class="rank-score">{{item['score']}}</p>
+                            </div>
+                            <!--自己-->
+                            <div class="rank rank-self" wx:elif="{{item['rank'] == friend_rank}}" bindtap="friendRankInfo" data-index="{{i}}">
+                                <p class="number">{{item['rank']}}</p>
+                                <image class="avatar" src="{{item['avatar']}}"></image>
+                                <p class="rank-name">{{item['nickname']}}</p>
+                                <p class="rank-score">{{item['score']}}</p>
+                            </div>
+                            <!--其他-->
+                            <div class="rank" wx:else bindtap="friendRankInfo" data-index="{{i}}">
+                                <p class="number">{{item['rank']}}</p>
+                                <image class="avatar" src="{{item['avatar']}}"></image>
+                                <p class="rank-name">{{item['nickname']}}</p>
+                                <p class="rank-score">{{item['score']}}</p>
+                            </div>
+                        </block>
+                        <p class="invite-word">邀请好友来挑战，丰富你的排行榜</p>
+                    </div>
+                </scroll-view>
+            </swiper-item>
+        </swiper>
+    </div>
+    <button open-type="share" class="btn btn-share">邀请好友</button>
+    <button open-type="contact" class="btn btn-contact">分享战绩</button>
+</div>

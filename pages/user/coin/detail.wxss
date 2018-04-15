@@ -1,0 +1,53 @@
+/* pages/user/coin/detail.wxss */
+
+
+.layer {   
+    background-image: linear-gradient(to bottom, #ffffff 0%, #eff0f5 100%);
+}
+
+.cell {
+    display: flex;
+    align-items: center;    
+    margin:15px 0px;
+    padding: 10px;       
+    background-color: white;        
+    color:#1f314a;    
+}
+
+.cell-add {
+    border-left: 3px solid #68a0fe;
+}
+
+.cell-sub {
+    border-left:3px solid #fe8968;
+}
+
+.left {
+    flex-grow: 1;
+}
+
+.date {
+    font-size: small;
+    color: #616f80;
+}
+
+.value {
+    min-width: 50px;
+    font-size: 2rem;
+    text-align: right;
+}
+
+.add {
+    color: #68a0fe;
+}
+
+.sub {
+    color: #fe8968;
+}
+
+.explain {
+    text-align: center;
+    font-size: small;
+    
+    margin-top: 30px;    
+}
