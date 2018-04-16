@@ -1,5 +1,5 @@
 <div class="container-fluid">
-    <div class="layer" style="background-size:cover;"></div>
+    <div class="layer" style="background-size:cover; background-image:url('/resource/image/infinity/main.png');" ></div>
     <!--<image src="/resource/image/infinity/main.png" mode="scaleToFill" style="width: {{width}}px; height: {{height}}px;" class="bbb"></image>-->
     <image src="/resource/image/infinity/cloud.png" style="width:{{cloud1_width}}px; height:{{cloud1_height}}px;" class="cloud1"></image>
     <image src="/resource/image/infinity/cloud.png" style="width:{{cloud2_width}}px; height:{{cloud2_height}}px;" class="cloud2"></image>

@@ -6,7 +6,7 @@
     left: 0;
     right: 0;
     z-index: -1;    
-    background-image: url('https://svipcoach.com/word/Public/resource/image/icon/gow/infinity/main.png');
+    /*background-image: url('https://svipcoach.com/word/Public/resource/image/icon/gow/infinity/main.png');*/
 }
 
 .layer image {
