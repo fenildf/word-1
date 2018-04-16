@@ -1,6 +1,6 @@
-<div class="container-fluid">    
-    <div class="background-layer layer"></div>    
-    <div class="title"> 
+<div class="container-fluid">
+    <div class="background-layer layer"></div>
+    <div class="title">
         <p class="h3">{{word}}</p>
         <div wx:if="{{phonetic}}" class="flex-box sound" bindtap="playVoice">
             <p>[{{phonetic}}]</p>
@@ -24,18 +24,43 @@
         </div>
     </div>
 
-    <div class="row" style="margin-top:20px;">
-        <div class="col-24">
-            <p class="text-center"><small>查看例句</small></p>            
-            <block wx:for="{{sentence}}" wx:for-item="item" wx:key="">
-                <p>{{item.orig}}</p>
-                <p>{{item.trans}}</p>
-            </block>
-        </div>
-    </div>
+    <block wx:if="{{sentence.length > 0}}">
+        <block wx:if="{{state}}">
+            <div class="row" style="margin-top:20px;">
+                <div class="col-24 text-center">
+                    <button class="btn btn-sent" bindtap="changeState">
+                        <small>查看例句
+                            <span class="iconfont icon-up"></span>
+                        </small>
+                    </button>
+                    <div class="sentences">
+                        <block wx:for="{{sentence}}" wx:for-item="item" wx:key="">
+                            <div class="sentence">
+                                <p class="en">{{item.orig}}</p>
+                                <p class="cn">{{item.trans}}</p>
+                            </div>
+                        </block>
+                    </div>
+                    <div class="addfooter"></div>
+                    <div class="addfooter"></div>
+                </div>
+            </div>
+        </block>
+        <block wx:else>
+            <div class="row" style="margin-top:20px;">
+                <div class="col-24 text-center">
+                    <button class="btn btn-sent" bindtap="changeState">
+                        <small>查看例句
+                            <span class="iconfont icon-down"></span>
+                        </small>
+                    </button>
+                </div>
+            </div>
+        </block>
+    </block>
 
     <div class="footer">
-        <div class="flex-row" style="margin-top:20px; margin-bottom:20px;">
+        <div class="flex-row" style="margin-top:10px; margin-bottom:10px;">
             <block wx:if="{{isfirst == 1}}">
                 <button class="btn btn-info flex-item" bindtap="back">返回</button>
                 <button class="btn btn-next flex-item" bindtap="next" data-index="{{index + 1}}">下一个</button>
@@ -48,6 +73,6 @@
                 <button class="btn btn-info flex-item" bindtap="prev" data-index="{{index - 1}}">上一个</button>
                 <button class="btn btn-next flex-item" bindtap="next" data-index="{{index + 1}}">下一个</button>
             </block>
-        </div>        
+        </div>
     </div>
 </div>

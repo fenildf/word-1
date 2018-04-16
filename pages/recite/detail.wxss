@@ -17,6 +17,7 @@
     text-align: center;
     background-color: #1396ff;
     color: white;
+    z-index:2;
 }
 
 .sound {
@@ -40,4 +41,32 @@
     color: white;
     background-color: #508f99;
     border-color: #508f99;
+}
+
+.btn-sent {
+    background-color: white;
+    border-radius: 15px;
+    padding: 10px 25px;
+    text-align: center;
+    color: #fe8968;
+}
+
+.sentences {
+    text-align: left;
+    padding: 10px;
+}
+
+.sentence {
+    background-color: white;    
+    margin-top: 10px;
+    padding:10px;
+    border-left: 3px solid #fe8968;
+}
+
+.sentence .en {
+    margin-bottom: 5px;
+}
+
+.footer {
+    background-color: #eff0f5;
 }

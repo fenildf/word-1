@@ -28,7 +28,8 @@ Page({
         word: '',                          // 单词本身
         phonetic: '',                      // 音标
         explains: [],                      // 含义        
-        sentence: [],
+        sentence: [],                      // 例句
+        state: false,                      // 查看例句按钮
         innerAudioContext: null,           // 发音文件        
         SEARCH_SOUND_IMG: SEARCH_SOUND_IMG // 发音图标
     },
@@ -86,6 +87,7 @@ Page({
         const isfirst = this.data.index == 0 ? 1 : 0;
         const islast = this.data.index == this.data.words.length - 1 ? 1 : 0;
         this.setData({
+            state: false,
             sentence: [],
             isfirst: isfirst,
             islast: islast,
@@ -116,6 +118,9 @@ Page({
         innerAudioContext.src = src;
     },
 
+    /**
+     * 获取例句
+     */
     getSentence: function (word) {
         const url = WORD_SENTENCE + word;
         const that = this;
@@ -126,5 +131,11 @@ Page({
                 });
             }
         })
+    },
+
+    changeState: function () {
+        this.setData({
+            state: !this.data.state
+        });
     }
 })
