@@ -48,6 +48,8 @@
                             <span class="iconfont icon-down"></span>
                         </small>
                     </button>
+                    <div class="addfooter"></div>
+                    <div class="addfooter"></div>
                 </div>
             </div>
         </block>
