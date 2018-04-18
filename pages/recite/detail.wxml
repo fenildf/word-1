@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid" bindscroll="test">
     <div class="background-layer layer"></div>
     <div class="title">
         <p class="h3">{{word}}</p>
@@ -28,7 +28,7 @@
         <block wx:if="{{state}}">
             <div class="row" style="margin-top:20px;">
                 <div class="col-24 text-center">
-                    <button class="btn btn-sent" bindtap="changeState">
+                    <button id="btn-sent" class="btn" bindtap="changeState">
                         <small>查看例句
                             <span class="iconfont icon-up"></span>
                         </small>
@@ -49,7 +49,7 @@
         <block wx:else>
             <div class="row" style="margin-top:20px;">
                 <div class="col-24 text-center">
-                    <button class="btn btn-sent" bindtap="changeState">
+                    <button id="btn-sent" class="btn" bindtap="changeState">
                         <small>查看例句
                             <span class="iconfont icon-down"></span>
                         </small>

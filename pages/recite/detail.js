@@ -133,9 +133,25 @@ Page({
         })
     },
 
+    /**
+     * 改变例句按钮状态
+     */
     changeState: function () {
+        const that = this;
         this.setData({
             state: !this.data.state
+        }, function () {
+            if (that.data.state) {
+                const query = wx.createSelectorQuery();
+                query.select('#btn-sent').fields({
+                    size: true,
+                    rect: true
+                }, function (res) {                    
+                    wx.pageScrollTo({
+                        scrollTop: res.top - 140 - 20  // 140是顶部高度，20是与顶部边距
+                    });
+                }).exec()
+            }            
         });
     }
 })
