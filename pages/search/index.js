@@ -13,6 +13,7 @@
  * 读：nickname、cust_id
  */
 const { httpGet, httpPost, preventDoubleClick } = require('../../resource/util/functions.js');
+const { WORD_SENTENCE } = require('../../resource/util/constant.js');
 
 // 常量
 const {
@@ -44,6 +45,7 @@ Page({
     data: {
         nickname: '',                       // 昵称
         word: '',                           // 输入框中的字符
+        sentence: [],                       // 例句
         scroll_height: 0,                   // 滚到页面高度
         content: [],                        // 已问的内容
         id: 0,                              // 当前激活ID
@@ -81,6 +83,7 @@ Page({
         if (!!word) {
             this.setData({ word: word });
             this.search();
+            this.getSentence(word);
         }
  
         if (source == 'share') {            
@@ -170,6 +173,7 @@ Page({
     search: function () {        
         let that = this;
         if (this.data.word.length > 0) {
+            this.getSentence(this.data.word);
             this.setData({ id: ++this.data.id });
             let url = SEARCH_WORD + this.data.word;
             httpGet(url).then(data => {
@@ -178,9 +182,11 @@ Page({
                     let result = data['data'];
                     result['id'] = 'w' + that.data.id;
                     content.push(result);
-                    that.setData({ content: content });
-                    that.setData({ word: '' });
-                    that.setData({ toVal: 'w' + that.data.id });
+                    that.setData({ 
+                        content: content,
+                        word: '',
+                        toVal: 'w' + that.data.id 
+                    });                    
                 }
             });
         }
@@ -205,5 +211,20 @@ Page({
             });
             innerAudioContext.play();
         }        
-    }
+    },
+
+    /**
+     * 获取例句
+     */
+    getSentence: function (word) {
+        const url = WORD_SENTENCE + word;
+        const that = this;
+        httpGet(url).then(data => {
+            if (data.code == 0 && data.data.length > 0) {
+                that.setData({
+                    sentence: data.data
+                });
+            }            
+        })
+    },
 })

@@ -31,6 +31,9 @@
                             <block wx:for="{{item['explain']}}" wx:for-item="explain" wx:key="">
                                 <p class="explain">{{explain}}</p>
                             </block>
+                            <div class="sentence" wx:if="{{sentence.length > 0}}">
+                                <p>查看例句</p><p class="iconfont icon-right"></p>
+                            </div>
                         </div>
                         <div wx:else class="answer">
                             <div class="header">
@@ -46,6 +49,9 @@
                             <block wx:for="{{item['explain']}}" wx:for-item="explain" wx:key="">
                                 <p class="explain">{{explain}}</p>
                             </block>
+                            <div class="sentence" wx:if="{{sentence.length > 0}}">
+                                <p>查看例句</p><p class="iconfont icon-right"></p>
+                            </div>
                         </div>
                     </div>
                 </block>

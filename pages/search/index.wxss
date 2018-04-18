@@ -66,6 +66,15 @@
     color: #33445b;    
 }
 
+.answer div.sentence {
+    border-top: 1px solid rgba(136,136,136,.3);
+    padding: 10px;    
+    color: #33445b;
+    display: flex;
+    justify-content: flex-end;    
+    align-items: center;
+}
+
 .searchbox {
     position: fixed;
     bottom: 20px;
