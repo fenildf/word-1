@@ -20,6 +20,7 @@ page {
     text-align: center;
     background-color: #233b5e;
     color: white;
+    z-index: 2;
 }
 
 .title p {
@@ -44,4 +45,34 @@ page {
     color: white;
     background-color: #508f99;
     border-color: #508f99;
+}
+
+
+#btn-sent {
+    background-color: #233b5e;
+    border-radius: 15px;
+    padding: 10px 25px;
+    text-align: center;
+    color: #fe8968;
+}
+
+.sentences {
+    text-align: left;
+    padding: 10px;
+}
+
+.sentence {
+    background-color: #233b5e;
+    color: white;
+    margin-top: 10px;
+    padding:10px;
+    border-left: 3px solid #fe8968;
+}
+
+.sentence .en {
+    margin-bottom: 5px;
+}
+
+.footer {
+    background-color: #1d3351;    
 }

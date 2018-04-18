@@ -1,6 +1,6 @@
 // pages/review/detail.js
-const { httpPost } = require('../../resource/util/functions.js');
-const { GET_LEVEL_WORDS, PHONETIC_API } =require('../../resource/util/constant.js');
+const { httpPost, httpGet } = require('../../resource/util/functions.js');
+const { GET_LEVEL_WORDS, PHONETIC_API, WORD_SENTENCE } =require('../../resource/util/constant.js');
 
 Page({
 
@@ -15,7 +15,9 @@ Page({
         words: [],
         word:'',
         phonetic: '',
-        explains:[],
+        explains: [],
+        sentence: [],             // 例句
+        state: false,             // 查看例句按钮
         innerAudioContext: null   // 发音文件
     },
 
@@ -71,13 +73,18 @@ Page({
     render: function () {        
         const isfirst = this.data.index == 0 ? 1 : 0;
         const islast = this.data.index == this.data.words.length - 1 ? 1 : 0;
-        this.setData({ isfirst: isfirst });
-        this.setData({ islast: islast });
-        this.setData({ word: this.data.words[this.data.index]['word'] });
-        this.setData({ phonetic: this.data.words[this.data.index]['us_phonetic'] });
+
+        this.setData({ 
+            isfirst: isfirst,
+            islast: islast,
+            state: false, 
+            word: this.data.words[this.data.index]['word'],
+            phonetic: this.data.words[this.data.index]['us_phonetic'],
+        });                
         let explains = this.data.words[this.data.index]['explains'].split('|');
         explains.pop();
         this.setData({ explains: explains });
+        this.getSentence(this.data.words[this.data.index]['word']);
         if (wx.getStorageSync('autoPlayPhonetic') != 0) {
             this.playVoice();
         }
@@ -94,6 +101,43 @@ Page({
     begin: function () {
         wx.navigateTo({
             url: '/pages/review/test?level=' + this.data.level,
+        });
+    },
+
+    /**
+     * 获取例句
+     */
+    getSentence: function (word) {
+        const url = WORD_SENTENCE + word;
+        const that = this;
+        httpGet(url).then(data => {
+            if (data.code == 0) {
+                that.setData({
+                    sentence: data.data
+                });
+            }
+        })
+    },
+
+    /**
+     * 改变例句按钮状态
+     */
+    changeState: function () {
+        const that = this;
+        this.setData({
+            state: !this.data.state
+        }, function () {
+            if (that.data.state) {
+                const query = wx.createSelectorQuery();
+                query.select('#btn-sent').fields({
+                    size: true,
+                    rect: true
+                }, function (res) {
+                    wx.pageScrollTo({
+                        scrollTop: res.top - 120 - 20  // 120是顶部高度，20是与顶部边距
+                    });
+                }).exec()
+            }
         });
     }
 })
