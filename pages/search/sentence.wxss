@@ -1,7 +1,7 @@
 /* pages/search/sentence.wxss */
 page {
     color: white;
-    background-color: #3e50b4;
+    background-color: #6665ff;
 }
 
 .word {    
