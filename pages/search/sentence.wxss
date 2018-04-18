@@ -1,0 +1,13 @@
+/* pages/search/sentence.wxss */
+page {
+    color: white;
+    background-color: #3e50b4;
+}
+
+.word {    
+    font-size: 72rpx;
+}
+
+.sentence {
+    margin: 40rpx 0rpx;
+}

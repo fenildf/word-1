@@ -31,7 +31,7 @@
                             <block wx:for="{{item['explain']}}" wx:for-item="explain" wx:key="">
                                 <p class="explain">{{explain}}</p>
                             </block>
-                            <div class="sentence" wx:if="{{sentence.length > 0}}">
+                            <div class="sentence" wx:if="{{sentence.length > 0}}" bindtap="sentence" data-word="{{item['word']}}">
                                 <p>查看例句</p><p class="iconfont icon-right"></p>
                             </div>
                         </div>
@@ -49,7 +49,7 @@
                             <block wx:for="{{item['explain']}}" wx:for-item="explain" wx:key="">
                                 <p class="explain">{{explain}}</p>
                             </block>
-                            <div class="sentence" wx:if="{{sentence.length > 0}}">
+                            <div class="sentence" wx:if="{{sentence.length > 0}}" bindtap="sentence" data-word="{{item['word']}}">
                                 <p>查看例句</p><p class="iconfont icon-right"></p>
                             </div>
                         </div>

@@ -25,7 +25,8 @@
         "pages/lexicon/choice",
         "pages/lexicon/daily",               
                         
-        "pages/search/index",        
+        "pages/search/index",      
+        "pages/search/sentence",  
         
         "pages/user/index",        
         "pages/user/signin/recite",

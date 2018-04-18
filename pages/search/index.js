@@ -227,4 +227,11 @@ Page({
             }            
         })
     },
+
+    sentence: function (event) {
+        const word = event.currentTarget.dataset.word;
+        wx.navigateTo({
+            url: 'sentence?word=' + word,
+        });
+    }
 })
