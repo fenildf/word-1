@@ -1,13 +1,17 @@
 <div class="container">
+    <div class="background-layer layer"></div>
     <div class="word">{{word}}</div>
     <block wx:if="{{sentence.length > 0}}">
-        <div class="sentences">
-            <block wx:for="{{sentence}}" wx:for-item="item" wx:key="">
+        <div class="sentences">                
+            <block wx:for="{{sentence}}" wx:for-item="item" wx:for-index="index" wx:key="">                
                 <div class="sentence">
-                    <p class="en">{{item.orig}}</p>
-                    <p class="cn">{{item.trans}}</p>
-                </div>
-            </block>
+                    <p class="index text-secondary">{{index}}</p>
+                    <div>
+                        <p class="en">{{item.orig}}</p>
+                        <p class="cn text-secondary">{{item.trans}}</p>
+                    </div>
+                </div>                
+            </block>            
         </div>
-    </block>    
+    </block>
 </div>

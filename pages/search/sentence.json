@@ -1,6 +1,6 @@
 {
-    "navigationBarBackgroundColor": "#6665ff",
-    "navigationBarTextStyle": "white",
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTextStyle": "black",
     "navigationBarTitleText": "单词例句",
-    "backgroundColor": "#6665ff"
+    "backgroundColor": "#6295eb"
 }

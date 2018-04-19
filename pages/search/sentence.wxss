@@ -1,7 +1,6 @@
 /* pages/search/sentence.wxss */
-page {
-    color: white;
-    background-color: #6665ff;
+.layer {    
+    background-image: linear-gradient(to bottom, #ffffff 0%, #eff0f5 100%);
 }
 
 .word {    
@@ -10,4 +9,9 @@ page {
 
 .sentence {
     margin: 40rpx 0rpx;
+    display: flex;    
+}
+
+.index {
+    margin-right: 20rpx;
 }
