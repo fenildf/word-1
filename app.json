@@ -20,6 +20,7 @@
         "pages/infinity/score",
         "pages/infinity/leaderboard",
         "pages/infinity/explain",
+        "pages/infinity/sentence",
 
 
         "pages/lexicon/choice",

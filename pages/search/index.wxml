@@ -10,12 +10,12 @@
                     </div>
                 </div>
                 <block wx:for="{{content}}" wx:for-item="item" wx:key="">
-                    <div class="dialogue right" id="{{item['id']}}">
+                    <div class="dialogue right">
                         <p wx:if="{{item['id'] == toVal}}" class="animated fadeInRight">{{item['word']}}</p>
                         <p wx:else>{{item['word']}}</p>
                         <image class="avatar" src="{{avatar}}"></image>
                     </div>
-                    <div class="dialogue">
+                    <div class="dialogue" id="{{item['id']}}">
                         <image class="avatar" src="{{SEARCH_TALK_IMG}}"></image>
                         <div wx:if="{{toVal == item['id']}}" class="answer animated fadeInLeft">                            
                             <div class="header">

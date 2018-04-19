@@ -9,8 +9,9 @@ const {
     SEARCH_LEAVE_IMG,     // 极速查词返回图标
     DEFAULT_AVATAR_IMG,   // 默认用户头像
     PHONETIC_API,         // 音标发音API
-    USER_SHARE,           // 用户分享获取金币链接
-    USER_ADD_RELATE       // 添加好友关系
+    USER_SHARE,           // 用户分享获取金币链接    
+    USER_ADD_RELATE,      // 添加好友关系
+    WORD_SENTENCE
 } = require('../../resource/util/constant.js');
 
 // 用户相关函数
@@ -20,7 +21,6 @@ const {
     getUserInfo,
     getUserLexicon
 } = require('../../resource/util/user.js');
-
 
 Page({
 
@@ -32,6 +32,7 @@ Page({
         word: '',                           // 输入框中的字符
         scroll_height: 0,                   // 滚到页面高度
         content: [],                        // 已问的内容
+        sentence: [],                       // 例句
         id: 0,                              // 当前激活ID
         toVal: 'w1',                        // 当前激活ID
         avatar: DEFAULT_AVATAR_IMG,         // 默认头像        
@@ -62,8 +63,58 @@ Page({
         if (!!word) {
             this.setData({ word: word });
             this.search();
+            this.getSentence(word);
         }        
     },    
+
+    /**
+     * 用户点击右上角分享
+     */
+    onShareAppMessage: function (e) {
+        let word = '';
+        let title = '';
+        let path = '';
+        if (e.target) {
+            word = e.target.dataset.word;
+            title = '已翻译：' + word;
+            path = '/pages/search/index?scene=share&fromcustid=' + wx.getStorageSync('cust_id') + '&word=' + word;
+        } else {
+            title = '欢迎使用全民单词';
+            path = '/pages/search/index?scene=share&fromcustid=' + wx.getStorageSync('cust_id');
+        }
+        return {
+            title: title,
+            path: path,
+            imageUrl: SEARCH_SHARE_IMG,
+            success: function (res) {
+                const url = USER_SHARE;
+                const data = { cust_id: wx.getStorageSync('cust_id') };
+                httpPost(url, data).then(data => {
+                    if (data.code == 0) {
+                        const addcoin = data['data']['addcoin'];
+                        const coin = data['data']['coin'];
+                        let title = '分享成功';
+                        if (addcoin > 0) {
+                            title = '分享 +' + addcoin + '金币';
+                        }
+                        wx.setStorageSync('coin', coin);
+                        wx.showToast({
+                            title: title,
+                            icon: 'success'
+                        });
+                    }
+                });
+            },
+            fail: function (res) {
+                if (res.errMsg == 'shareAppMessage:fail cancel') {
+                    wx.showToast({
+                        title: '已取消分享',
+                        icon: 'none'
+                    });
+                }
+            }
+        }
+    },
 
     /**
      * 输入触发
@@ -78,6 +129,7 @@ Page({
     search: function () {
         let that = this;
         if (this.data.word.length > 0) {
+            this.getSentence(this.data.word);
             this.setData({ id: ++this.data.id });
             let url = SEARCH_WORD + this.data.word;
             httpGet(url).then(data => {
@@ -107,5 +159,30 @@ Page({
         const innerAudioContext = wx.createInnerAudioContext();
         innerAudioContext.autoplay = true;
         innerAudioContext.src = src;
-    }    
+    },
+
+    /**
+     * 获取例句
+     */
+    getSentence: function (word) {
+        const url = WORD_SENTENCE + word;
+        const that = this;
+        httpGet(url).then(data => {
+            if (data.code == 0 && data.data.length > 0) {
+                that.setData({
+                    sentence: data.data
+                });
+            }
+        })
+    },
+
+    /**
+     * 跳转例句
+     */
+    sentence: function (event) {
+        const word = event.currentTarget.dataset.word;
+        wx.navigateTo({
+            url: 'sentence?word=' + word,
+        });
+    }
 })
