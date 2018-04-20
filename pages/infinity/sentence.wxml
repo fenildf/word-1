@@ -1,17 +1,22 @@
 <div class="container">
     <div class="background-layer layer"></div>
-    <div class="word">{{word}}</div>
-    <block wx:if="{{sentence.length > 0}}">
+    <div class="word">{{word}}</div>    
+    <block wx:if="{{sentences.length > 0}}">
         <div class="sentences">                
-            <block wx:for="{{sentence}}" wx:for-item="item" wx:for-index="index" wx:key="">                
+            <block wx:for="{{sentences}}" wx:for-item="item" wx:for-index="index" wx:key="">                
                 <div class="sentence">
                     <p class="index text-secondary">{{index + 1}}</p>
                     <div>
-                        <p class="en text-primary">{{item.orig}}</p>
-                        <p class="cn text-secondary">{{item.trans}}</p>
+                        <p class="en text-primary">
+                        <block wx:for="{{item}}" wx:for-item="i" wx:key="">
+                            <block wx:if="{{i.flag}}"><span style="color:#fe8968;">{{i.word}}</span></block><block wx:else>{{i.word}}</block>
+                        </block>
+                        </p>
+                        <p class="cn text-secondary">{{sentence[index].trans}}</p>
                     </div>
                 </div>                
-            </block>            
+            </block>
         </div>
     </block>
+    <div class="addfooter"></div>
 </div>

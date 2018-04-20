@@ -1,4 +1,4 @@
-// pages/search/sentence.js
+// pages/infinity/sentence.js
 
 const { httpGet } = require('../../resource/util/functions.js');
 const { WORD_SENTENCE } = require('../../resource/util/constant.js');
@@ -33,36 +33,34 @@ Page({
         httpGet(url).then(data => {
             if (data.code == 0 && data.data.length > 0) {
                 that.setData({
-                    sentence: data.data                    
+                    sentence: data.data
                 }, function () {
-                    that.test(data.data, word);
+                    const final = new Array;
+                    const reg = new RegExp("(" + that.data.word + ")", 'gi');
+                    for (let i = 0; i < that.data.sentence.length; i++) {
+                        const sent = that.data.sentence[i].orig;
+                        let array = sent.split(reg);
+                        let result = new Array;
+                        for (let j = 0; j < array.length; j++) {
+                            if (array[j].toLowerCase() == that.data.word.toLowerCase()) {
+                                result.push({
+                                    word: array[j],
+                                    flag: true
+                                });
+                            } else {
+                                result.push({
+                                    word: array[j],
+                                    flag: false
+                                });
+                            }
+                        }
+                        final.push(result);
+                    }
+                    that.setData({
+                        sentences: final
+                    });
                 });
             }
         })
-    },
-
-    findIndex: function (sentence, word) {
-        const reg = new RegExp(word, 'g');
-        let index = new Array;
-        while ((match = reg.exec(sentence)) !== null) {
-            index.push(match.index);            
-        }        
-    },
-
-    test: function () {
-        for (let i = 0; i < this.data.sentence.length; i++) {
-            const sent = this.data.sentence[i].orig;
-            let array = sent.split(this.data.word);
-            for (let j = 0; j < array.length; j++) {
-                if (j != array.length - 1) {
-                    console.log(array[j]);
-                    console.log(this.data.word);
-                } else {
-                    console.log(array[j]);
-                    console.log('换行');
-                }
-            }
-        }
     }
-
 })
