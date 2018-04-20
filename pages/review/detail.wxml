@@ -30,8 +30,8 @@
                     <div class="sentences">
                         <block wx:for="{{sentence}}" wx:for-item="item" wx:key="">
                             <div class="sentence">
-                                <p class="en">{{item.orig}}</p>
-                                <p class="cn">{{item.trans}}</p>
+                                <p class="en text-primary">{{item.orig}}</p>
+                                <p class="cn text-secondary">{{item.trans}}</p>
                             </div>
                         </block>
                     </div>
